@@ -1,0 +1,75 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --mode development",
+    "build": "vue-cli-service build --mode development",
+    "build:prod": "vue-cli-service build --mode production",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.6.0",
+    "bootstrap-sass": "^3.4.1",
+    "core-js": "^3.6.5",
+    "element-plus": "^1.0.2-beta.35",
+    "element3": "0.0.39",
+    "font-awesome": "^4.7.0",
+    "github-markdown-css": "^4.0.0",
+    "highlight.js": "^10.7.1",
+    "jquery": "^3.6.0",
+    "marked": "^2.0.1",
+    "mavon-editor": "^2.9.1",
+    "nprogress": "^0.2.0",
+    "popper.js": "^1.16.1",
+    "qs": "^6.5.2",
+    "showdown": "^1.9.1",
+    "simplemde": "^1.11.2",
+    "vditor": "^3.8.3",
+    "vue": "^3.0.0",
+    "vue-markdown": "^2.2.4",
+    "vue-router": "^4.0.0-beta.13",
+    "vue-wechat-title": "^2.0.7",
+    "vuex": "^4.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.12",
+    "@vue/cli-plugin-eslint": "^4.5.12",
+    "@vue/cli-service": "^4.5.12",
+    "@vue/compiler-sfc": "^3.0.0",
+    "axios": "^0.18.0",
+    "babel-eslint": "^10.1.0",
+    "babel-runtime": "^6.26.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "node-sass": "^5.0.0",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "sass-loader": "^10.1.1",
+    "vue-cli-plugin-axios": "~0.0.4",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true,
+      "jquery": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
