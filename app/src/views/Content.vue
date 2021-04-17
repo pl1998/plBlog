@@ -210,7 +210,7 @@ export default {
         topicApi
           .createTopics(data)
           .then((response) => {
-            const { code, data, message } = response.data;
+            const { code, message } = response.data;
             if (code == 200) {
               ElMessage("评论成功");
               this.getTopcs(this.articleId);
@@ -219,7 +219,6 @@ export default {
             }
           })
           .catch((error) => {
-            console.log(error)
             ElMessage("失败");
           });
       }
@@ -244,9 +243,6 @@ export default {
           this.article = data;
           this.loading = true;
         })
-        .catch((error) => {
-          console.log(error);
-        });
     },
     getTopcs(id) {
       this.$store.dispatch("getTopicsList", id);
@@ -265,7 +261,6 @@ export default {
       color: rgba(0, 0, 0, 0.87);
       font-weight: 700;
     }
-
     .time {
       color: #a5a5a5 !important;
       font-size: 0.8em;
@@ -274,7 +269,6 @@ export default {
 }
 .review {
   width: 560px;
-
   text-align: left;
   border: 1px dashed rgb(204, 204, 204);
   border-radius: 6px;
@@ -282,6 +276,6 @@ export default {
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  margin-left: 105px;
+  margin-left: 95px;
 }
 </style>

@@ -61,7 +61,7 @@
          </div>
       </div> -->
     </div>
-  
+
   </div>
 </template>
 <script>
@@ -92,7 +92,7 @@ export default {
   },
   created(){
      this.getList()
-      this.$store.dispatch('getTopicsList')
+      this.$store.dispatch('getHotList')
   },
   methods:{
     getList() {
@@ -117,20 +117,20 @@ export default {
       this.data.keywords=val
       this.getList()
     }
-    
+
   }
 };
 </script>
 
 <style lang="scss">
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1380px;
-  }
-}
-@media (min-width: 1400px) {
-  .container {
-    max-width: 1380px;
-  }
-}
+//@media (min-width: 1200px) {
+//  .container {
+//    max-width: 1380px;
+//  }
+//}
+//@media (min-width: 1400px) {
+//  .container {
+//    max-width: 1380px;
+//  }
+//}
 </style>
