@@ -67,7 +67,7 @@ class TopicsController extends Controller
     {
         Log::info('user_id',[Auth::id()]);
         if(Topics::query()->where('user_id',Auth::id())->where('id',$id)->exists()) {
-            Topics::query()->where('user_id',Auth::id())->delete();
+            Topics::query()->where('user_id',Auth::id())->where('id',$id)->delete();
             return $this->success();
         }else{
             return $this->fail('无权限删除该评论或该评论已删除',[],500,200);

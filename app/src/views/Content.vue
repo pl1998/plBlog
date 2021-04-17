@@ -84,7 +84,7 @@
             plain
             >{{ btnValue }}</el-button
           >
-        
+
         </el-form>
       </div>
     </div>
@@ -111,7 +111,7 @@
           <br />
           <div class="commons-prview m-2">
             <div class="vditor-reset" v-highlight v-html="topic.content"></div>
-           
+
           </div>
            <br />
            <div class="commons-footer">
@@ -177,6 +177,7 @@ export default {
           type: 'warning'
         }).then(() => {
           this.delTopic(id)
+          this.getTopcs(this.articleId);
         })
     },
     delTopic(id)

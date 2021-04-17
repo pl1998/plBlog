@@ -23,14 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5f095db-4c22-40e8-80bf-6d8026df8f7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blogapi.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/apiblog/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -197,7 +200,9 @@
       <updated>1618644295996</updated>
       <workItem from="1618644297110" duration="251000" />
       <workItem from="1618644679671" duration="59000" />
-      <workItem from="1618644878410" duration="362000" />
+      <workItem from="1618644878410" duration="661000" />
+      <workItem from="1618646404687" duration="13000" />
+      <workItem from="1618647845926" duration="1118000" />
     </task>
     <servers />
   </component>
@@ -214,6 +219,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1909" y="188" key="SettingsEditor" timestamp="1618645083871">

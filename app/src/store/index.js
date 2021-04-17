@@ -126,7 +126,9 @@ export default createStore({
          if(Object.keys(data).length!=0){
           commit('updateTopics',data)
           commit('updateIsTopics',true)
-         
+         }else {
+           commit('updateTopics',[])
+           commit('updateIsTopics',false)
          }
       })
     }
