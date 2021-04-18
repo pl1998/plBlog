@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Topics;
+use App\Observers\TopicObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //注册删除评论后事件
+       Topics::deleting(TopicObserver::class);
     }
 
     /**
@@ -23,7 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
         \Carbon\Carbon::setLocale('zh');
+        //监听删除评论后事件
+        Topics::observe(TopicObserver::class);
     }
 }

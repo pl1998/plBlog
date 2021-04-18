@@ -21,6 +21,7 @@ class AccessRecord
         if($request->route()->uri == 'api/article/{id}' && env('APP_DEBUG') == false){
             VisitorsToRecordJob::dispatch($request->getClientIp(),$request->id);
         }
+
         return $next($request);
     }
 }

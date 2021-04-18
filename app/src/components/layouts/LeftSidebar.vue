@@ -3,7 +3,7 @@
     <h5 class="float-left menu-h3">分类</h5>
     <br />
     <ul class="list-group list-group-flush p-1 bg">
-      <a href="" v-for="menu in menus" :key="menu.label">
+      <a :href="`?keywords=`+menu.label" v-for="menu in menus" :key="menu.label">
         <li class="list-group-item d-flex justify-content-between align-items-centerm menu-size">
           {{ menu.label }}
           <span class="badge badge-primary badge-pill">{{ menu.value }}</span>

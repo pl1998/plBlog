@@ -19,10 +19,12 @@ class OauthController extends Controller
     {
         $auth = new SocialiteAuth(config('oauth.github'));
         $user = $auth->driver('github')->user();
+
         $users = User::query()->where('oauth_id',$user->id)->first();
+
         if(!$users){
             $users= User::query()->create([
-                'name'=>$user->name,
+                'name'=> empty($user->name) ?? $user->login,
                 'email'=>$user->email,
                 'avatar'=>$user->avatar_url,
                 'oauth_id'=>$user->id,
@@ -36,6 +38,7 @@ class OauthController extends Controller
     {
         $auth = new SocialiteAuth(config('oauth.gitee'));
         $user = $auth->driver('gitee')->user();
+
         $users = User::query()->where('oauth_id',$user->id)->first();
 
         if(!$users){
@@ -54,13 +57,14 @@ class OauthController extends Controller
     {
         $auth = new SocialiteAuth(config('oauth.weibo'));
         $user = $auth->driver('weibo')->user();
+
         $users = User::query()->where('oauth_id',$user->id)->first();
 
         if(!$users){
             $users= User::query()->create([
                 'name'=>$user->name,
-                'email'=>$user->email,
-                'avatar'=>$user->avatar_url,
+                'email'=>'',
+                'avatar'=>$user->avatar_large,
                 'oauth_id'=>$user->id,
                 'bound_oauth'=>2
             ]);

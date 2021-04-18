@@ -17,5 +17,6 @@ Route::group([
     $router->resource('/users', 'UsersController');
     $router->resource('/visitor-registry', 'VisitorRegistryController');
     $router->resource('/topics', 'TopicController');
+    $router->resource('/website', 'WebsiteFooterController');
 
 });

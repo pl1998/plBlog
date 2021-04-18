@@ -75,12 +75,12 @@ class TopicController extends AdminController
      */
     protected function form()
     {
-        return Form::make(new Topic(), function (Form $form) {
+        return Form::make(new Topics(), function (Form $form) {
             $form->display('id');
             $form->text('article_id');
             $form->text('topic_id');
             $form->text('user_id');
-            $form->text('content');
+
             $form->text('address');
             $form->text('ip');
 

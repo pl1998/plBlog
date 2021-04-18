@@ -204,12 +204,12 @@ return [
     'menu' => [
         'cache' => [
             // enable cache or not
-            'enable' => false,
+            'enable' => true,
             'store'  => 'file',
         ],
 
         // Whether enable menu bind to a permission.
-        'bind_permission' => true,
+        'bind_permission' => false,
 
         'default_icon' => 'feather icon-circle',
     ],

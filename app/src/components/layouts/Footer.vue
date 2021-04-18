@@ -3,26 +3,16 @@
 		<div class="container">
 			<div class="row bg">
 				<div class="text-left col-6">
-				<a href="#"><img style="    border-radius: 90%;" :src="avatar" class="h-10 w-10"></a>
+				<a href="#"><img style="    border-radius: 90%;" :src="websiteInfo.logo" class="h-10 w-10"></a>
 				<div class="">
-					<p class="name">latent@2021 潜蛰的个人博客</p>
-					<h5><a href="http://www.beian.miit.gov.cn/">备案/许可证编号为:赣ICP备19000975号-1</a></h5>
+					<p class="name">{{websiteInfo.name}}</p>
+					<h5><a href="https://www.miit.gov.cn/">备案/许可证编号为:{{websiteInfo.license}}</a></h5>
 				</div>
 			</div>
 
 			<div class="col-6 text-right-6 footer-logo">
-			
-				<a href="https://learnku.com/blog/pltrue">
-							<img style="width:25px" :src="laravelblog">
-				</a>
-				<a href="https://laravelacademy.org/">
-							<img style="width:25px" :src="laravelacademy">
-				</a>
-				<a href="https://element-plus.gitee.io/#/zh-CN/component/installation">
-					<img  style="width:25px" :src="element">
-				</a>
-					<a href="https://v4.bootcss.com/docs/components/popovers/">
-					<img  style="width:25px" :src="bootstrap">
+				<a v-for="site in websiteInfo.website" :key="site.title" :title="site.title" :href="site.website_url">
+							<img style="width:25px" :src="site.website_img">
 				</a>
 			</div>
 			</div>
@@ -35,16 +25,17 @@ import laravelacademy from "../../assets/laravelacademy.png";
 import laravelblog from "../../assets/laravel_blog.png"
 import element from "../../assets/element.png"
 import bootstrap from "../../assets/bootstap.png"
+import {mapState} from "vuex";
+
 	export default {
 		name:"Footer",
-		data(){
-			return {
-				avatar:logo,
-				laravelacademy:laravelacademy,
-				laravelblog:laravelblog,
-				bootstrap:bootstrap,
-				element:element
-			}
-		}
-	}
+    computed:{
+      ...mapState([
+        'websiteInfo'
+      ])
+    },
+    mounted() {
+      this.$store.dispatch('getWebsiteInfo')
+    }
+  }
 </script>

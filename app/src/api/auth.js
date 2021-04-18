@@ -5,7 +5,7 @@ var baseUrl = process.env.VUE_APP_BASE_API
 export default {
     /**
      * 获取用户信息
-     * @param {*} data 
+     * @param {*} data
      */
     me:function(token){
         return axios.get(baseUrl+'/auth/me',{
@@ -16,7 +16,7 @@ export default {
     },
     /**
      * 清除token
-     * @param {*} token 
+     * @param {*} token
      */
     logout:function(token){
         return axios.get(baseUrl+'/auth/logout',{
@@ -24,5 +24,10 @@ export default {
                 'Authorization':'Bearer '+token,
             }
         })
+    },
+
+    getWebsiteInfo:function()
+    {
+        return axios.get(baseUrl+'/getWebsiteInfo');
     }
-} 
+}

@@ -62,6 +62,10 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection bound_oauth
      * @property Grid\Column|Collection user_json
      * @property Grid\Column|Collection art_id
+     * @property Grid\Column|Collection logo
+     * @property Grid\Column|Collection license
+     * @property Grid\Column|Collection license_url
+     * @property Grid\Column|Collection website
      *
      * @method Grid\Column|Collection id(string $label = null)
      * @method Grid\Column|Collection name(string $label = null)
@@ -114,6 +118,10 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection bound_oauth(string $label = null)
      * @method Grid\Column|Collection user_json(string $label = null)
      * @method Grid\Column|Collection art_id(string $label = null)
+     * @method Grid\Column|Collection logo(string $label = null)
+     * @method Grid\Column|Collection license(string $label = null)
+     * @method Grid\Column|Collection license_url(string $label = null)
+     * @method Grid\Column|Collection website(string $label = null)
      */
     class Grid {}
 
@@ -171,6 +179,10 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection bound_oauth
      * @property Show\Field|Collection user_json
      * @property Show\Field|Collection art_id
+     * @property Show\Field|Collection logo
+     * @property Show\Field|Collection license
+     * @property Show\Field|Collection license_url
+     * @property Show\Field|Collection website
      *
      * @method Show\Field|Collection id(string $label = null)
      * @method Show\Field|Collection name(string $label = null)
@@ -223,6 +235,10 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection bound_oauth(string $label = null)
      * @method Show\Field|Collection user_json(string $label = null)
      * @method Show\Field|Collection art_id(string $label = null)
+     * @method Show\Field|Collection logo(string $label = null)
+     * @method Show\Field|Collection license(string $label = null)
+     * @method Show\Field|Collection license_url(string $label = null)
+     * @method Show\Field|Collection website(string $label = null)
      */
     class Show {}
 

@@ -25,7 +25,6 @@ Route::group([
 });
 
 
-
 Route::get('/article','ArticlesController@index');
 Route::get('/article/{id}','ArticlesController@show')->middleware('access.record');
 Route::get('/ho_list','ArticlesController@hotList');
@@ -40,6 +39,9 @@ Route::delete('/topic/{id}','TopicsController@delete');
 Route::get('/githubCallBack','OauthController@githubCallBack');
 Route::get('/giteeCallBack','OauthController@giteeCallBack');
 Route::get('/weiboCallBack','OauthController@weiboCallBack');
+
+//网址一些基本信息
+Route::get('/getWebsiteInfo','AppController@getWebsiteInfo');
 
 
 

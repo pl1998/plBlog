@@ -55,3 +55,6 @@ php artisan serve --port 9091
 ```shell script
 php artisan queue:work redis --sleep=3
 ```
+
+#### 更新日志 
+  * 2021-04-17 新增用户评论所属区域显示 新增归档a链接 新增评论删除模型监听

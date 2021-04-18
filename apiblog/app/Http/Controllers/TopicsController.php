@@ -26,7 +26,7 @@ class TopicsController extends Controller
     {
       $data =   Topics::query()->with('user')
           ->where('article_id',$id)
-          ->get(['id','content','created_at','user_id']);
+          ->get(['id','content','created_at','user_id','address']);
 
       return $this->success($data);
     }
@@ -37,6 +37,7 @@ class TopicsController extends Controller
             'contents' => ['required','min:2'],
             'article_id' => ['required','exists:articles,id']
         ]);
+         $ipInfo = geoip($request->getClientIp());
          if(is_numeric($request->topic_id)){
             if( Topics::query()->where('topic_id',$request->topic_id)->exists())
             {
@@ -45,18 +46,19 @@ class TopicsController extends Controller
                     'content'=> $request->contents,
                     'article_id'=> $request->article_id,
                     'user_id'=>Auth::id(),
-                    'ip'=>$request->getClientIp()
+                    'ip'=>$request->getClientIp(),
+                    'address'=>$ipInfo->country.' '.$ipInfo->city
                 ]);
                 Articles::query()->findOrFail($request->article_id)->increment('browse_count');
             }
              return $this->fail('当前评论已删除或不存在');
          } else{
-             Log::info('test',[$request->all()]);
              Topics::query()->create([
                  'content'=> $request->contents,
                  'article_id'=> $request->article_id,
                  'user_id'=>Auth::id(),
-                 'ip'=>$request->getClientIp()
+                 'ip'=>$request->getClientIp(),
+                 'address'=>$ipInfo->country.' '.$ipInfo->city,
              ]);
              Articles::query()->findOrFail($request->article_id)->increment('browse_count');
          }
@@ -65,9 +67,8 @@ class TopicsController extends Controller
 
     public function delete($id)
     {
-        Log::info('user_id',[Auth::id()]);
         if(Topics::query()->where('user_id',Auth::id())->where('id',$id)->exists()) {
-            Topics::query()->where('user_id',Auth::id())->where('id',$id)->delete();
+            Topics::destroy($id);
             return $this->success();
         }else{
             return $this->fail('无权限删除该评论或该评论已删除',[],500,200);

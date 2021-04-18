@@ -36,7 +36,7 @@ class Topics extends Model
     protected $dateFormat='';
 
     protected $fillable = [
-      'topic_id','article_id','content','user_id'
+      'topic_id','article_id','content','user_id','ip','address'
     ];
 
 
@@ -50,4 +50,6 @@ class Topics extends Model
     {
         return $this->hasOne(Articles::class,'id','article_id');
     }
+
+
 }

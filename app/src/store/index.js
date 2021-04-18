@@ -14,7 +14,9 @@ export default createStore({
     users: localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : false,
     token: undefined,
     topics:[],
-    isTopic:false
+    isTopic:false,
+    websiteInfo:JSON.parse(localStorage.getItem('websiteInfo')) || false,
+
   },
   mutations: {
     updateArticles(state, list) {
@@ -66,10 +68,24 @@ export default createStore({
     },
     updateToken(token) {
       localStorage.setItem('token', token, 7200)
+    },
+    updateWebsiteInfo(state,data){
+      state.websiteInfo = JSON.stringify(data)
+      localStorage.setItem('websiteInfo',JSON.stringify(data))
     }
   },
   actions: {
+    getWebsiteInfo({commit}){
+      if(this.state.websiteInfo==false){
+        authApi.getWebsiteInfo()
+            .then((response) => {
+              const { data } = response.data
+              commit('updateWebsiteInfo', data)
+            })
+      }
 
+
+    },
     getArticleList({ commit }, data) {
       ArticleApi.getArticles(data)
         .then((response) => {
