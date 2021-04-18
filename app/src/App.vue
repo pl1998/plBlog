@@ -35,6 +35,8 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   background-color:#f7f7f7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
   text-align: center;
   color: #2c3e50;
 }

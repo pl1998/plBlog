@@ -34,8 +34,8 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 //引入markeown
 import 'github-markdown-css/github-markdown.css'
 import hljs from 'highlight.js'
-import 'highlight.js/styles/dracula.css';
-
+//import 'highlight.js/styles/dracula.css';
+import 'highlight.js/styles/monokai-sublime.css'
 //
 
 

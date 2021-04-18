@@ -81,6 +81,7 @@
             @click="submit"
             type="primary"
             :disabled="!auth"
+            :loading="submitLoading"
             plain
             >{{ btnValue }}</el-button
           >
@@ -102,6 +103,9 @@
               </div>
               <div class="float-left pl-1" style="">
                 <span class="name">{{ topic.user.name }}</span>
+              </div>
+              <div class="float-left pl-1" style="">
+                <span class="address">{{ topic.address }}</span>
               </div>
               <div class="float-left pl-1">
                 <span class="time">{{ topic.created_at }}</span>
@@ -153,6 +157,7 @@ export default {
       topidId: "",
       article: [],
       loading: false,
+      submitLoading:false,
       show: false,
       commentValue: localStorage.getItem("auth") ? "请输入" : "请登录在评论--",
       btnValue: localStorage.getItem("auth") ? "提交" : "请登录",
@@ -203,9 +208,12 @@ export default {
       });
     },
     submit() {
+
+
       if (this.form.comments == undefined) {
-        ElMessage("内容过低");
+        ElMessage("内容不能为空");
       } else {
+        this.subLoading(true)
         let data = { article_id: this.articleId, contents: this.html };
         topicApi
           .createTopics(data)
@@ -213,7 +221,9 @@ export default {
             const { code, message } = response.data;
             if (code == 200) {
               ElMessage("评论成功");
+              this.subLoading(false)
               this.getTopcs(this.articleId);
+
             } else {
               ElMessage(message);
             }
@@ -223,6 +233,19 @@ export default {
           });
       }
     },
+    subLoading(bools)
+    {
+      if(bools == false){
+        this.form.comments=undefined
+        this.html=undefined
+        this.submitLoading = false
+        this.btnValue='提交'
+      }else {
+        this.submitLoading = true
+        this.btnValue='提交中...'
+      }
+    },
+
     handleClose(done) {
       this.show = false;
       done();
@@ -263,6 +286,9 @@ export default {
     }
     .time {
       color: #a5a5a5 !important;
+      font-size: 0.7em;
+    }
+    .address{
       font-size: 0.8em;
     }
   }
