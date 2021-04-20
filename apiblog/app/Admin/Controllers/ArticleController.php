@@ -96,7 +96,7 @@ class ArticleController extends AdminController
             $form->text('title')->required();
             $form->image('cover_img')->disk('public')->required();
             $form->textarea('description')->required();
-            $form->markdown('content')->required();
+            $form->markdown('content')->disk('public')->required();
             $form->switch('status')->options([
                 0=>'正常',
                 1=>'关闭'

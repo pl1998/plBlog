@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 class TopicObserver
 {
     //
-    public function deleting(Topics $topic)
+    public function deleted(Topics $topic)
     {
         Log::info('test',$topic->toArray());
         $topic->article()->decrement('browse_count');

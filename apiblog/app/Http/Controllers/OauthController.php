@@ -11,6 +11,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Pl1998\ThirdpartyOauth\SocialiteAuth;
+use Symfony\Component\HttpFoundation\Cookie;
+
 
 
 class OauthController extends Controller
@@ -76,6 +78,7 @@ class OauthController extends Controller
     {
         $token = Auth::guard('api')->login($users);
         $url   = env('VUE_CALLBACK_URL').'?token='.$token;
-        return redirect($url)->header('token',$token);
+        return redirect($url)->with('token',$token);
+
     }
 }

@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //注册删除评论后事件
-       Topics::deleting(TopicObserver::class);
+       Topics::deleted(TopicObserver::class);
     }
 
     /**
