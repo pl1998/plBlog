@@ -33,6 +33,6 @@ class TopicsSend extends Mailable
         return $this->from(env('MAIL_SEND_ADDRESS'))
             ->view('email.topics_notification',[
                 'topic'=>$this->topics
-            ]);
+        ]);
     }
 }

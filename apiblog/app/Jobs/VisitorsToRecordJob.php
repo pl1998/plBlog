@@ -45,7 +45,7 @@ class VisitorsToRecordJob implements ShouldQueue
             VisitorRegistry::query()->create([
                 'art_id'=>$this->article_id,
                 'ip' =>$this->ip,
-                'address' => $ipInfo->country.'-'.$ipInfo->city,
+                'address' => $ipInfo->state_name.'-'.$ipInfo->city,
             ]);
         }
     }

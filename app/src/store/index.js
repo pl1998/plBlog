@@ -3,6 +3,7 @@ import ArticleApi from '../api/article'
 import authApi from '../api/auth'
 import topicApi from '../api/topic'
 import { ElMessage } from 'element-plus'
+import Cookies from 'js-cookie'
 export default createStore({
   state: {
     articles: [],
@@ -10,9 +11,9 @@ export default createStore({
     article: undefined,
     content: undefined,
     archives: [],
-    auth: localStorage.getItem('auth') || false,
+    auth: Cookies.get('auth') ? true : false, 
     users: localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : false,
-    token: undefined,
+    token:  Cookies.get('token') || undefined,
     topics:[],
     isTopic:false,
     websiteInfo:JSON.parse(localStorage.getItem('websiteInfo')) || false,
@@ -38,24 +39,24 @@ export default createStore({
       localStorage.setItem('users', data, 7200)
     },
     delAuth(state,auth){
-      localStorage.removeItem('auth')
-      state.auth = auth
+      state.auth=auth
+      Cookies.remove('token')
+      Cookies.remove('auth')
+   
       localStorage.removeItem('users')
-      state.users = []
-      localStorage.removeItem('token')
-      state.token = undefined
     },
     setAuth(state,auth){
       state.auth = auth
-      localStorage.setItem('auth', true, 7200)
+      Cookies.set('auth', auth,{expires:604700})
+    
     },
     setUsers(state,users){
       state.users = users
-      localStorage.setItem('users', users, 7200)
+      localStorage.set('users', users)
     },
     setToken(state,token){
       state.token = token
-      localStorage.setItem('token', token, 7200)
+      Cookies.set('token', token,{expires:604700})
     },
     updateTopics(state,topics){
       state.topics = topics
@@ -63,11 +64,12 @@ export default createStore({
     updateIsTopics(state,isTopic){
       state.isTopic = isTopic
     },
-    updateAuth(auth) {
-      localStorage.setItem('auth', auth, 7200)
+    updateAuth(state,auth) {
+      Cookies.set('auth', auth,{expires:604700})
+      state.auth = true
     },
     updateToken(token) {
-      localStorage.setItem('token', token, 7200)
+      Cookies.set('token', token,{expires:604700})
     },
     updateWebsiteInfo(state,data){
       state.websiteInfo = JSON.stringify(data)
@@ -93,12 +95,16 @@ export default createStore({
           commit('updateArticles', data.list)
         })
     },
-    getUsers({commit}) {
-      authApi.me(localStorage.getItem('token'))
+     getUsers({commit},token) {
+      authApi.me(token)
         .then((response) => {
           let users = JSON.stringify(response.data)
-          commit('setUsers',users)
-          commit('setAuth',true)
+          localStorage.setItem('users',users)
+          this.state.users = users
+
+          Cookies.set('token',token,{expires:604700})
+          commit('updateAuth',true)
+          ElMessage('登录成功')
         })
     },
     getArticles({ commit }, id) {
@@ -110,8 +116,13 @@ export default createStore({
         })
     },
     userLogout({ commit }) {
-      let token = localStorage.getItem('token')
+      //this.state.auth=false
+   
+      let token = Cookies.get('token')
       commit('delAuth',false)
+      Cookies.remove('auth')
+      Cookies.remove('token')
+ 
       authApi.logout(token)
         .then((response) => {
           const {data} =  response.data

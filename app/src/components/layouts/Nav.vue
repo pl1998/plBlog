@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-white rounded topnav"
+    class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-white rounded topnav "
   >
     <div class="container">
       <a href="/" class="navbar-brand">
@@ -25,6 +25,7 @@
               >文章 <span class="sr-only">(current)</span></a
             >
           </li>
+        
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -48,6 +49,9 @@
           </li>
           <li class="nav-item">
             <router-link class="nav-link" :to="`/timeline`">归档</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="`/open_source`">开源</router-link>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

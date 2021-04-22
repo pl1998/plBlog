@@ -6,6 +6,7 @@ import 'element-plus/lib/theme-chalk/index.css';
 
 //vuex
 import store from './store'
+import Cookies from 'js-cookie'
 
 //vue-router
 import router from './router'
@@ -17,6 +18,12 @@ import 'nprogress/nprogress.css'
 //渲染页面title
 import VueWechatTitle from 'vue-wechat-title'
 //进度条配置
+
+
+
+
+
+
 NProgress.inc(0.2)
 NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false })
 router.beforeEach((to,from,next) => {
@@ -34,10 +41,8 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 //引入markeown
 import 'github-markdown-css/github-markdown.css'
 import hljs from 'highlight.js'
-//import 'highlight.js/styles/dracula.css';
-import 'highlight.js/styles/monokai-sublime.css'
+import '../src/style/monokai-sublime.css'
 //
-
 
 const app = createApp(App)
 
@@ -52,12 +57,18 @@ app.config.globalProperties.$filters = {
     }
   }
 }
-
+import Viewer from 'v-viewer'
+import 'viewerjs/dist/viewer.css'
+Viewer.setDefaults({
+  Options: { 'inline': true, 'button': true, 'navbar': true, 'title': true, 'toolbar': true, 'tooltip': true, 'movable': true, 'zoomable': true, 'rotatable': true, 'scalable': true, 'transition': true, 'fullscreen': true, 'keyboard': true, 'url': 'data-source' }
+})
 
 app.use(ElementPlus)
 .use(animated)
+.use(Cookies)
 .use(NProgress)
 .use(VueWechatTitle)
+.use(Viewer)
 .directive('highlight',
 function (el) {
   let blocks = el.querySelectorAll('pre code');
@@ -68,5 +79,4 @@ function (el) {
 
 app.use(router)
 app.use(store)
-
 app.mount('#app')

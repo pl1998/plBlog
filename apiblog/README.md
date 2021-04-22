@@ -1,62 +1,62 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## 基于vue3+element-plus+laravel8构建的前后端分离的博客应用
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+  * [前端源码](/app/)
+  * [后端源码](/apiblog/)
+  
+#### 工具🔧  
+  * [vue3](https://www.vue3js.cn/docs/zh)
+  * [element-plus](https://github.com/element-plus/element-plus)
+  * [laravel8.x](https://learnku.com/docs/laravel/8.x/upgrade/9352)
+  
+#### 模块
+  * 登录第三方授权+jwt token 授权 使用了自己开发的[第三方登录包](https://github.com/pl1998/thirdparty_oauth) `thirdparty_oauth`
+  * 评论模块
+  * element组件:时间轴、组件分离、分页 导航栏等组件
+  * job队列异步记录访客ip以及地址(守护进程消费)
+  * 利用redis有序集合缓存热门排行榜
+  * 后台使用了[dcat-admin](https://learnku.com/docs/dcat-admin/2.x)
+  * 等待完善...
+  
+#### 前端安装集成
 
-## About Laravel
+  * 前端
+```shell script
+   //全局配置文件 存放第三方登录一些key 以及后台接口
+   .env
+   .env.development
+   .env.production
+```  
+  * 前端安装
+  ```shell script
+npm install
+npm run serve //热开发 加载.env.development配置文件
+npm run build:prod //打包发布 加载 .env.production配置文件
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+#### 后端安装集成(记得将sql文件导入并配置好数据库和redis)
+  * .env 配置(已经配置好了)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```shell script
+BROADCAST_DRIVER=log 
+CACHE_DRIVER=array 
+QUEUE_CONNECTION=sync //异步
+SESSION_DRIVER=redis //redis驱动
+SESSION_LIFETIME=120
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```
+  * 启动 
+```shell script
+cp .env.example .env
+composer install
+php artisan key:gen
+php artisan serve --port 9091
+```   
+#### 后台消费队列(正式环境用守护进程维护就行)
+```shell script
+php artisan queue:work redis --sleep=3
+```
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### 更新日志 
+  * 2021-04-17 新增用户评论所属区域显示 新增归档a链接 新增评论删除模型监听
+  * 2021-04-20 新增文章图片跳转 新增二级评论
+  

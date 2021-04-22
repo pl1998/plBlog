@@ -1,8 +1,9 @@
 import axios from "axios";
 var baseUrl = process.env.VUE_APP_BASE_API
+import Cookies from 'js-cookie'
 const service = axios.create({
 	headers: {
-		'Authorization': 'Bearer '+localStorage.getItem('token')	//	可以是授权凭证用的参数值
+		'Authorization': 'Bearer '+Cookies.get('token')	//	可以是授权凭证用的参数值
 	}
 });
 const qs = require('qs');

@@ -50,7 +50,7 @@ class TopicsController extends Controller
                     'article_id'=> $request->article_id,
                     'user_id'=>Auth::id(),
                     'ip'=>$request->getClientIp(),
-                    'address'=>$ipInfo->country.' '.$ipInfo->city,
+                    'address'=>$ipInfo->state_name.' '.$ipInfo->city,
                     'created_at'=>now()->toDate(),
                     'updated_at'=>now()->toDate()
                 ];
@@ -63,7 +63,7 @@ class TopicsController extends Controller
                  'article_id'=> $request->article_id,
                  'user_id'=>Auth::id(),
                  'ip'=>$request->getClientIp(),
-                 'address'=>$ipInfo->country.' '.$ipInfo->city,
+                 'address'=>$ipInfo->state_name.' '.$ipInfo->city,
                  'created_at'=>now()->toDate(),
                  'updated_at'=>now()->toDate()
              ];

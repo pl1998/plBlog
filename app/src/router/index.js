@@ -31,7 +31,7 @@ const routes= [
     meta:{
       title:'开源项目 Latent的个人博客',
     }
-  },
+  }
 ]
 
 const router = createRouter({
@@ -41,13 +41,13 @@ const router = createRouter({
 
 router.beforeEach((to)=>{
   if(to.query.token != undefined && to.query.token!='' && store.state.auth == false) {
-    store.state.token = to.query.token
-    localStorage.setItem('token',to.query.token,7200)
-    store.dispatch('getUsers')
+    store.dispatch('getUsers',to.query.token)
     setTimeout(function () {
       let url = location.protocol+'//'+location.host+location.pathname
        history.pushState('','',url)
        location.reload()
+    
+
   }, 1000);
 
   }

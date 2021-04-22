@@ -1,7 +1,58 @@
 
+@media (max-width: 750px){
+  
+   body  {
+
+      .reply{
+         .textarea{
+            max-width: 100%;
+         }
+         .el-textarea__inner{
+            width:80%
+         }
+      }
+      //首页响应式
+     max-width: 100%;
+   .card,.card-content  {
+      .title{
+         font-size: 0.7em;
+      }
+      img {
+         text-align: center;
+         width:80px;
+         float: left;
+         height: 80px;
+      }
+      .description{
+         overflow: hidden;
+         text-overflow: ellipsis;
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical;
+      }
+      .label{
+         font-size:14px;
+      }
+      .description{
+         clear:none;
+         font-size: 0.1rem;
+      }
+      .button{
+         font-size: 0.1rem;
+      }
+      .el-textarea{
+         max-width: 100%;
+      }
+  }
+}
+}
+
 body  {
 .container .app-container{
    margin-top: 25px;
+}
+.textarea{
+   max-width: 560px;
 }
 @media (min-width: 1200px){
    .container, .container-lg, .container-md, .container-sm, .container-xl {
@@ -27,26 +78,7 @@ body  {
 .card f-size{
    font-size: 13px;
 }
-@media (max-width: 750px){
-   .card-content  {
-      img {
-         text-align: center;
-         width:80px;
-         float: left;
-         height: 80px;
-   
-      }
-      .description{
-         clear:none;
-         font-size: 0.1rem;
 
-      }
-      .button{
-         font-size: 0.1rem;
-      }
-  }
-  
-}
 .btn-danger {
    color: #01d1b2;
    background-color: #fff;
@@ -82,8 +114,8 @@ body  {
       margin-top: 7px;
    }
    img {
-      width:160px;
-      height: 100px;
+      width: 100%;
+      height: 100%;
    }
    border: none;
    background-color: #fff;

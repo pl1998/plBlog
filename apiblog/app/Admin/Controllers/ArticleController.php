@@ -7,7 +7,7 @@ use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
 use Dcat\Admin\Http\Controllers\AdminController;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class ArticleController extends AdminController
@@ -107,8 +107,10 @@ class ArticleController extends AdminController
 
             $form->display('created_at');
             $form->display('updated_at');
-            $form->saving(function (){
-
+            $form->saving(function (Form $form){
+                if($form->isCreating()){
+                    $form->user_id= \auth('admin')->id();
+                }
             });
         });
     }
