@@ -1,6 +1,6 @@
 
 @media (max-width: 750px){
-  
+
    body  {
 
       .reply{
@@ -125,7 +125,7 @@ body  {
    a :hover   {
       color: #fff;
       background-color: #dc3545;
-  
+
    }
    .label{
       margin-bottom: 5px;
@@ -169,6 +169,26 @@ body  {
    height: 30px;
    border-radius:90%
 }
+
+   .reply-child-avatar{
+      width: 30px;
+      height: 30px;
+      border: 1px solid #fff;
+
+
+   }
+
+ .reply-avatar{
+      width: 30px;
+      height: 30px;
+      border: 1px solid #fff;
+      box-shadow: 0 1px 10px 0 #a3b4bf;
+      margin-left: -65px;
+      margin-top: -40px;
+}
+
+
+
 .is-size-7{
    font-size: .8rem !important;
 }
@@ -187,7 +207,7 @@ body  {
 .tags {
    color: #4a4a4a;
    background-color: #c2bcbc;
-  
+
    display: inline-flex;
    font-size: .75rem;
    height: 2em;

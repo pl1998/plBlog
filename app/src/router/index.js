@@ -11,7 +11,7 @@ const routes= [
     name: 'Home',
     component: Home,
     meta:{
-      title:'Latent的个人博客',
+      title:'',//Latent的个人博客
     }
   },
   {

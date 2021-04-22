@@ -1,5 +1,6 @@
 <template>
-  <el-button  @click="drawer = true" icon="el-icon-user" style="border:none" circle></el-button>
+  <!-- <el-button class="btn-home"  @click="drawer = true" icon="el-icon-user" style="border:none" ></el-button> -->
+  <button class="btn btn-lg btn-default" @click="drawer = true"><i class="fa fa-user"></i></button>
   <el-drawer
     title="我是标题"
     v-model="drawer"
@@ -129,3 +130,10 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.btn-home{
+  width: 30px;
+  height: 30px;
+
+}
+</style>
