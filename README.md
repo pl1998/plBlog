@@ -7,7 +7,11 @@
   * [vue3](https://www.vue3js.cn/docs/zh)
   * [element-plus](https://github.com/element-plus/element-plus)
   * [laravel8.x](https://learnku.com/docs/laravel/8.x/upgrade/9352)
-  
+#### 前端UI参考
+  * [炫酷ui](https://88250.b3log.org/)
+  * [简洁ui](https://www.louislivi.com/)
+  *
+    
 #### 模块
   * 登录第三方授权+jwt token 授权 使用了自己开发的[第三方登录包](https://github.com/pl1998/thirdparty_oauth) `thirdparty_oauth`
   * 评论模块
@@ -15,6 +19,7 @@
   * job队列异步记录访客ip以及地址(守护进程消费)
   * 利用redis有序集合缓存热门排行榜
   * 后台使用了[dcat-admin](https://learnku.com/docs/dcat-admin/2.x)
+  * 前端新增主题切换
   * 等待完善...
   
 #### 前端安装集成
