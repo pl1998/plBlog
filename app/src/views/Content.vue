@@ -1,8 +1,9 @@
 <template>
   <div class="container" v-wechat-title="article.title">
     <div class="row">
-      <LeftSidebar></LeftSidebar>
-      <div class="col-sm-8 m-2 text-left bg">
+       <div class="col-sm-2"></div>
+      <!-- <LeftSidebar></LeftSidebar> -->
+      <div class="col-sm-8 m-2 text-left bg article-preview">
         <el-skeleton v-if="!loading" :rows="20" animated />
         <div v-else>
           <div class="bg">
@@ -35,10 +36,12 @@
           </div>
           <br />
           <br />
+   <!-- id="vditorPreview"
+            class="vditor-reset" -->
+          <!-- editor-preview-side editor-preview-active-side -->
           <div
             @click="proxyImage"
-            id="vditorPreview"
-            class="vditor-reset"
+            class="vditor-reset articles article__content"
             v-html="article.content"
             v-highlight
           ></div>
@@ -209,18 +212,17 @@
   </div>
 </template>
 <script>
-import LeftSidebar from "@/components/layouts/LeftSidebar";
+
 import Api from "../api/article";
 import topicApi from "../api/topic";
 import marked from "marked";
 import { mapState } from "vuex";
 import DialogLogin from "../components/DialogLogin";
 import { ElMessage } from "element-plus";
-import "vditor/dist/index.css";
 import Cookies from "js-cookie";
 
 export default {
-  components: { LeftSidebar, DialogLogin },
+  components: { DialogLogin },
   computed: {
     ...mapState(["users", "auth", "topics", "isTopic"]),
   },
@@ -296,6 +298,7 @@ export default {
           }
         })
         .catch((error) => {
+          console.log(error)
           this.refresh();
           ElMessage("用户登录过期");
         });
@@ -358,6 +361,7 @@ export default {
               }
             })
             .catch((error) => {
+                console.log(error)
               this.refresh();
               ElMessage("失败");
             });

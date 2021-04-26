@@ -19,11 +19,6 @@ import 'nprogress/nprogress.css'
 import VueWechatTitle from 'vue-wechat-title'
 //进度条配置
 
-
-
-
-
-
 NProgress.inc(0.2)
 NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false })
 router.beforeEach((to,from,next) => {
@@ -41,7 +36,9 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 //引入markeown
 import 'github-markdown-css/github-markdown.css'
 import hljs from 'highlight.js'
+import '../src/style/ui-vendors.css'
 import '../src/style/monokai-sublime.css'
+
 //
 
 const app = createApp(App)
@@ -57,18 +54,14 @@ app.config.globalProperties.$filters = {
     }
   }
 }
-import Viewer from 'v-viewer'
-import 'viewerjs/dist/viewer.css'
-Viewer.setDefaults({
-  Options: { 'inline': true, 'button': true, 'navbar': true, 'title': true, 'toolbar': true, 'tooltip': true, 'movable': true, 'zoomable': true, 'rotatable': true, 'scalable': true, 'transition': true, 'fullscreen': true, 'keyboard': true, 'url': 'data-source' }
-})
+import {bubbles} from 'vue-canvas-effect';
+app.component('Vue-Canvas', bubbles);
 
 app.use(ElementPlus)
 .use(animated)
 .use(Cookies)
 .use(NProgress)
 .use(VueWechatTitle)
-.use(Viewer)
 .directive('highlight',
 function (el) {
   let blocks = el.querySelectorAll('pre code');

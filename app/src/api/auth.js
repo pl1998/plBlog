@@ -29,5 +29,9 @@ export default {
     getWebsiteInfo:function()
     {
         return axios.get(baseUrl+'/getWebsiteInfo');
+    },
+    
+    getSourceList:function(){
+        return axios.get(baseUrl+'/getSourceProject')
     }
 }

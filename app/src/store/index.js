@@ -17,7 +17,8 @@ export default createStore({
     topics:[],
     isTopic:false,
     websiteInfo:JSON.parse(localStorage.getItem('websiteInfo')) || false,
-
+    projects:localStorage.getItem('projects'),
+    style:localStorage.getItem('style') ? localStorage.getItem('style') :'bootstarp'
   },
   mutations: {
     updateArticles(state, list) {
@@ -31,6 +32,10 @@ export default createStore({
     },
     updatehots(state, list) {
       state.hots = list;
+    },
+    updateProject(state,list){
+      state.projects = list
+      localStorage.setItem('projects',list)
     },
     updateArticleArchive(state, list) {
       state.archives = list;
@@ -74,9 +79,17 @@ export default createStore({
     updateWebsiteInfo(state,data){
       state.websiteInfo = JSON.stringify(data)
       localStorage.setItem('websiteInfo',JSON.stringify(data))
+    },
+    SET_STYLE(state,style){
+      state.style=style
+      localStorage.setItem('style',style)
     }
   },
   actions: {
+    setTyple({commit},style){
+      commit('SET_STYLE',style)
+
+    },
     getWebsiteInfo({commit}){
       if(this.state.websiteInfo==false){
         authApi.getWebsiteInfo()
@@ -85,8 +98,6 @@ export default createStore({
               commit('updateWebsiteInfo', data)
             })
       }
-
-
     },
     getArticleList({ commit }, data) {
       ArticleApi.getArticles(data)
@@ -101,11 +112,18 @@ export default createStore({
           let users = JSON.stringify(response.data)
           localStorage.setItem('users',users)
           this.state.users = users
-
           Cookies.set('token',token,{expires:604700})
           commit('updateAuth',true)
           ElMessage('登录成功')
         })
+    },
+    getSourceList(){
+      authApi.getSourceList()
+      .then((response) => {
+        const { data } = response.data
+        commit('updateProject', data)
+       
+      })
     },
     getArticles({ commit }, id) {
       ArticleApi.getArticle(id)

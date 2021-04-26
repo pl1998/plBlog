@@ -1,5 +1,48 @@
 <template>
-  <div class="container">
+<el-row v-if="style=='element'" :gutter="20">
+  <el-col :span="4"></el-col>
+  <el-col :span="16">
+     <div class="card card-content mt-3" :key="list.id" v-for="list in lists">
+          <h5>
+            <a
+              class="title float-left text-left"
+              :href="`/article/` + list.id+`#google_vignette`"
+              >{{ list.title }}</a
+            >
+          </h5>
+  
+          <div class="row bg">
+            <div class="col-12 text-left description">
+              {{ list.description }}
+            </div>
+          </div>
+          <div class="button is-size-7">
+            <span class="float-left">
+              <i class="fa fa-user mr-2"></i>Latent&nbsp;&nbsp;
+            </span>
+            <span class="float-left">
+              <i class="fa fa-calendar mr-2"></i
+              >{{ list.created_at }}&nbsp;&nbsp;
+            </span>
+            <span class="float-left">
+              <i class="fa fa-eye mr-2"></i>{{ list.review_count }}&nbsp;&nbsp;
+            </span>
+            <span class="float-left">
+              <i class="fa fa-comments mr-2"></i
+              >{{ list.browse_count }}&nbsp;&nbsp;
+            </span>
+          </div>
+        </div>
+         <Pagination
+          :currentPage="currentPage"
+          :total="total"
+          @handleCurrentChange="handleCurrentChange"
+          @handleSizeChange="handleSizeChange"
+        />
+  </el-col>
+  <el-col :span="4"></el-col>
+</el-row>
+  <div v-else class="container">
     <div class="row">
       <LeftSidebar></LeftSidebar>
       <div class="col-sm-6 m-0">
@@ -68,15 +111,6 @@
           </article>
         </div>
       </div>
-      <!-- <div class="card p-1" style="background-color: #fff; border: 1px solid #e4e7ed;">
-          <h5 class="float-left menu-h3">标签</h5>
-           <div>
-              <a style="">
-                <span class="tag p-1">golang</span>
-                <span class="tags p-1">1</span>
-              </a>
-         </div>
-      </div> -->
     </div>
   </div>
 </template>
@@ -89,7 +123,7 @@ import Api from "../api/article";
 export default {
   components: { Pagination, LeftSidebar },
   computed: {
-    ...mapState(["hots"]),
+    ...mapState(["hots","style"]),
   },
   data() {
     return {

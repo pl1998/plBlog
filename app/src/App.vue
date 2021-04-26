@@ -1,23 +1,21 @@
 <template>
   <div id="app">
     <Nav></Nav>
-    <router-view  v-wechat-title="$route.meta.title"></router-view>
-  <el-backtop :bottom="200">
-  </el-backtop>
+    <router-view v-wechat-title="$route.meta.title"></router-view>
+    <el-backtop :bottom="200"> </el-backtop>
     <Footer></Footer>
   </div>
 </template>
 <script>
-
 import Nav from "@/components/layouts/Nav";
 import Footer from "@/components/layouts/Footer";
 export default {
   components: { Footer, Nav },
-  data(){
+  data() {
     return {
-      update:false
-    }
-  }
+      update: false,
+    };
+  },
 };
 </script>
 
@@ -32,12 +30,15 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~animate.css";
 
 #app {
-  background-color:#f7f7f7;
+  background-color: #f7f7f7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-backface-visibility:hidden;
-  backface-visibility:hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   text-align: center;
   color: #2c3e50;
+  font-family: Muiicons;
+  font-weight: normal;
+  font-style: normal;
 }
 </style>

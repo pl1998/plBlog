@@ -1,12 +1,15 @@
 <template>
     <div class="container">
-         <div class="row">
-             
-         </div>
+       <el-row>
+       
+       </el-row>
     </div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
-    
+      computed: {
+    ...mapState(["projects"]),
+  },
 }
 </script>

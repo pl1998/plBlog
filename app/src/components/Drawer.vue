@@ -7,6 +7,8 @@
     :with-header="false"
     size="15%"
     direction="rtl"
+  
+    :show-close="true"
   >
     <div class="container " style="margin-top:40px;">
       <h3 class="m-auto">latent</h3>
@@ -134,6 +136,9 @@ export default {
 .btn-home{
   width: 30px;
   height: 30px;
+}
+
+@media (max-width: 750px){
 
 }
 </style>

@@ -1,176 +1,222 @@
+@media (max-width: 750px) {
+   body {
 
-@media (max-width: 750px){
-
-   body  {
-
-      .reply{
-         .textarea{
+      .reply {
+         .textarea {
             max-width: 100%;
          }
-         .el-textarea__inner{
-            width:80%
+
+         .el-textarea__inner {
+            width: 80%
          }
       }
+
       //首页响应式
-     max-width: 100%;
-   .card,.card-content  {
-      .title{
-         font-size: 0.7em;
-      }
-      img {
-         text-align: center;
-         width:80px;
-         float: left;
-         height: 80px;
-      }
-      .description{
-         overflow: hidden;
-         text-overflow: ellipsis;
-         display: -webkit-box;
-         -webkit-line-clamp: 2;
-         -webkit-box-orient: vertical;
-      }
-      .label{
-         font-size:14px;
-      }
-      .description{
-         clear:none;
-         font-size: 0.1rem;
-      }
-      .button{
-         font-size: 0.1rem;
-      }
-      .el-textarea{
-         max-width: 100%;
-      }
-  }
-}
-}
+      max-width: 100%;
 
-body  {
-.container .app-container{
-   margin-top: 25px;
-}
-.textarea{
-   max-width: 560px;
-}
-@media (min-width: 1200px){
-   .container, .container-lg, .container-md, .container-sm, .container-xl {
-      max-width: 1340px;
-  }
-}
+      .card,
+      .card-content {
+         .title {
+            font-size: 0.7em;
+         }
 
-.overflow-hedden {overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
-.row{
-   background-color:#f7f7f7;
-}
-.badge-primary {
-   color: #fff;
-   background-color: #909399;
-}
-.bg {
-   background-color: #fff;
-}
-.menu-h3 {
-   font-size: .75em;
-   color:#7a7a7a ;
-}
-.card f-size{
-   font-size: 13px;
-}
+         img {
+            text-align: center;
+            width: 80px;
+            float: left;
+            height: 80px;
+         }
 
-.btn-danger {
-   color: #01d1b2;
-   background-color: #fff;
-   border-color: #01d1b2;
-   font-size: 0.2rem;
-   line-height: 1.2;
-}
-.btn-danger:hover{
-   color: #fff;
-   background-color: #01d1b2;
-   border: 1px solid #01d1b2;
-}
+         .description {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+         }
 
-.card-content{
-   .media{
-      margin-top: 25px;
-      a{
-         color: #242424 !important;
-         font-size: 0.6em;
-         text-overflow: ellipsis;
-      }
-      a:hover{
-         text-decoration: none;
-         color:#3273dc;
-      }
-      img {
-       object-fit: cover;
-       width:120px;
-      //  height: 100%;
+         .label {
+            font-size: 14px;
+         }
+
+         .description {
+            clear: none;
+            font-size: 0.1rem;
+         }
+
+         .button {
+            font-size: 0.1rem;
+         }
+
+         .el-textarea {
+            max-width: 100%;
+         }
       }
    }
-   .button{
-      margin-top: 7px;
-   }
+}
+
+.article-preview {
    img {
-      width: 100%;
-      height: 100%;
-   }
-   border: none;
-   background-color: #fff;
-   margin-bottom: 20px;
-   padding: 1.5rem;
-
-   a :hover   {
-      color: #fff;
-      background-color: #dc3545;
-
-   }
-   .label{
-      margin-bottom: 5px;
+      max-width: 100%;
    }
 }
 
-.footer {
-   height: 200px;
-   background-color: #fff;
-   padding: 40px 0 40px 0;
-   .name{
-      font-size: 0.5em;
-      padding-top: 20px;;
+body {
+   .container .app-container {
+      margin-top: 25px;
    }
-   h5{
-      color: #242424 !important;
-      font-size: 0.3em;
+
+   .textarea {
+      max-width: 560px;
    }
-   a {
-      color: #939393;
-   }
-   h-w-15{
-      height: 15px;
-      width: 15px;
-   }
-   .footer-logo{
-      a{
-         margin: 0 5px 0 5px ;
+
+   @media (min-width: 1200px) {
+
+      .container,
+      .container-lg,
+      .container-md,
+      .container-sm,
+      .container-xl {
+         max-width: 1340px;
       }
    }
-}
-.h-10{
-   height: 25px;
-}
-.w-10{
-   width: 25px;
-}
 
-.login-avatar{
-   width: 30px;
-   height: 30px;
-   border-radius:90%
-}
+   .overflow-hedden {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+   }
 
-   .reply-child-avatar{
+   .row {
+      background-color: #f7f7f7;
+   }
+
+   .badge-primary {
+      color: #fff;
+      background-color: #909399;
+   }
+
+   .bg {
+      background-color: #fff;
+   }
+
+   .menu-h3 {
+      font-size: .75em;
+      color: #7a7a7a;
+   }
+
+   .card f-size {
+      font-size: 13px;
+   }
+
+   .btn-danger {
+      color: #01d1b2;
+      background-color: #fff;
+      border-color: #01d1b2;
+      font-size: 0.2rem;
+      line-height: 1.2;
+   }
+
+   .btn-danger:hover {
+      color: #fff;
+      background-color: #01d1b2;
+      border: 1px solid #01d1b2;
+   }
+
+   .card-content {
+      .media {
+         margin-top: 25px;
+
+         a {
+            color: #242424 !important;
+            font-size: 0.6em;
+            text-overflow: ellipsis;
+         }
+
+         a:hover {
+            text-decoration: none;
+            color: #3273dc;
+         }
+
+         img {
+            object-fit: cover;
+            width: 120px;
+            //  height: 100%;
+         }
+      }
+
+      .button {
+         margin-top: 7px;
+      }
+
+      img {
+         width: 100%;
+         height: 100%;
+      }
+
+      border: none;
+      background-color: #fff;
+      margin-bottom: 20px;
+      padding: 1.5rem;
+
+      a :hover {
+         color: #fff;
+         background-color: #dc3545;
+
+      }
+
+      .label {
+         margin-bottom: 5px;
+      }
+   }
+
+   .footer {
+      height: 200px;
+      background-color: #fff;
+      padding: 40px 0 40px 0;
+
+      .name {
+         font-size: 0.5em;
+         padding-top: 20px;
+         ;
+      }
+
+      h5 {
+         color: #242424 !important;
+         font-size: 0.3em;
+      }
+
+      a {
+         color: #939393;
+      }
+
+      h-w-15 {
+         height: 15px;
+         width: 15px;
+      }
+
+      .footer-logo {
+         a {
+            margin: 0 5px 0 5px;
+         }
+      }
+   }
+
+   .h-10 {
+      height: 25px;
+   }
+
+   .w-10 {
+      width: 25px;
+   }
+
+   .login-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 90%
+   }
+
+   .reply-child-avatar {
       width: 30px;
       height: 30px;
       border: 1px solid #fff;
@@ -178,25 +224,28 @@ body  {
 
    }
 
- .reply-avatar{
+   .reply-avatar {
+
       width: 30px;
       height: 30px;
       border: 1px solid #fff;
       box-shadow: 0 1px 10px 0 #a3b4bf;
       margin-left: -65px;
       margin-top: -40px;
-}
+   }
 
 
 
-.is-size-7{
-   font-size: .8rem !important;
+   .is-size-7 {
+      font-size: .8rem !important;
+   }
+
+   .description {
+      font-size: 1rem;
+      word-wrap: break-word;
+   }
 }
-.description{
-   font-size: 1rem;
-   word-wrap: break-word;
-}
-}
+
 .tag {
    color: #4a4a4a;
    background-color: #f5f5f5;
@@ -220,55 +269,75 @@ body  {
 }
 
 .title {
-   color:#242424;
-   cursor:pointerl;
-   text-decoration:none;
+   color: #242424;
+   cursor: pointerl;
+   text-decoration: none;
    word-break: break-all;
    font-size: 1.4rem;
-    font-weight: 600;
-    line-height: 1.125;
+   font-weight: 600;
+   line-height: 1.125;
 }
-.title:hover{
+
+.title:hover {
    text-decoration: none;
 }
 
 
-a:hover{
+a:hover {
    text-decoration: none;
 
 }
 
-nav {height:50px;}
+nav {
+   height: 50px;
+}
 
-.main{padding-bottom:100px;background-color: #bdb76b;}
+.main {
+   padding-bottom: 100px;
+   background-color: #bdb76b;
+}
 
-.list-group-flush{
+.list-group-flush {
    .list-group-item {
       border-width: 0 0 1px;
       font-size: 13px;
       border: none;
-      background-color:#fff;
+      background-color: #fff;
    }
-   a{
+
+   a {
       color: #4a4a4a;
    }
-   a:hover{
+
+   a:hover {
       text-decoration: none;
       color: #4a4a4a;
-      .list-group-item{
+
+      .list-group-item {
          background-color: #e8e8e8;
       }
    }
 }
-// footer {
-//    position: absolute;
-//    bottom: 0;
-//    width: 100%;
-//    height: 100px;
-//    background-color: #ffc0cb;
-// }
 
+// 重写button样式
+.el-button--menu.is-active,
+.el-button--menu:active {
+   opacity: 0.9;
+   color: #fff;
+}
 
+.el-button--menu:focus,
+.el-button--menu:hover {
+   opacity: 0.9;
+   color: #fff;
+}
 
-
-
+.el-button--menu {
+   opacity: 0.3;
+   background-color: #5d5858;
+   border: 1px solid hsla(0, 0%, 100%, 0.6);
+   color: #fff;
+   transition: left 0.3s ease;
+   text-transform: uppercase;
+   border-radius: 3px;
+}

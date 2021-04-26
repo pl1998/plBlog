@@ -1,0 +1,12 @@
+// .babelrc
+{
+    "plugins": [
+        [
+            "import",
+            {
+                "libraryName": "vue-canvas-effect",
+                "libraryDirectory": "src/components"
+            }
+        ]
+    ]
+}
