@@ -118,7 +118,8 @@
 import Pagination from "@/components/layouts/Pagination";
 import LeftSidebar from "@/components/layouts/LeftSidebar";
 import { mapState } from "vuex";
-import Api from "../api/article";
+import ArticleApi from "@/api/article";
+// import { getArticles } from '@/request/api';// 导入我们的api接口
 
 export default {
   components: { Pagination, LeftSidebar },
@@ -148,8 +149,8 @@ export default {
   },
   methods: {
     getList() {
-      Api.getArticles(this.data).then((response) => {
-        const { data } = response.data;
+      ArticleApi.getArticles(this.data).then((response) => {
+        const { data } = response;
         this.lists = data.list;
         this.total = data.meta.total;
       });

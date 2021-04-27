@@ -15,12 +15,16 @@
       <div class="m-3">
          <img :src="logo" class="w-75 h-75" style="border-radius: 90%;">
       </div>
-      <h5>关于我 😯 !</h5>
-      <ul class="list-inline">
-        <li class="list-inline-item">标签:95后、技术宅、运动🏊‍♀️达人</li>
+      <!-- <h5>关于我 😯 !</h5> -->
+      <!-- <ul class="list-inline list-ui">
+        <li class="list-inline-item">
+          <el-tag type="success">95后</el-tag>
+<el-tag type="info">技术宅</el-tag>
+<el-tag type="warning">游戏</el-tag>
+          </li>
         <li class="list-inline-item">技能:PHP、VUE、GO</li>
         <li class="list-inline-item">其他:游戏、旅游、摄影</li>
-      </ul>
+      </ul> -->
       <dl class="row bg" style="margin: 0 auto;">
         <dt class="col-3">
           <a href="https://github.com/pl1998">
@@ -136,6 +140,12 @@ export default {
 .btn-home{
   width: 30px;
   height: 30px;
+}
+.list-ui{
+  li{
+    overflow: hidden;
+    word-break:break-all
+  }
 }
 
 @media (max-width: 750px){

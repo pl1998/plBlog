@@ -1,37 +1,27 @@
-import axios from "axios";
+import {get} from '../request/http'
 
-
-var baseUrl = process.env.VUE_APP_BASE_API
 export default {
     /**
      * 获取用户信息
      * @param {*} data
      */
-    me:function(token){
-        return axios.get(baseUrl+'/auth/me',{
-            headers:{
-                'Authorization':'Bearer '+token,
-              }
-        })
+    me:function(){
+        return get('/auth/me')
     },
     /**
      * 清除token
      * @param {*} token
      */
-    logout:function(token){
-        return axios.get(baseUrl+'/auth/logout',{
-            headers:{
-                'Authorization':'Bearer '+token,
-            }
-        })
+    logout:function(){
+        return get('/auth/logout')
     },
 
     getWebsiteInfo:function()
     {
-        return axios.get(baseUrl+'/getWebsiteInfo');
+        return get('/getWebsiteInfo');
     },
     
     getSourceList:function(){
-        return axios.get(baseUrl+'/getSourceProject')
+        return get('/getSourceProject')
     }
 }

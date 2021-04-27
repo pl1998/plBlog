@@ -11,7 +11,6 @@
           >menu</el-button
         >
       </div>
-
       <div class="m-4">
         <el-menu
           default-active="1-4-1"
@@ -24,11 +23,6 @@
             <i class="el-icon-s-home"></i>
             <template #title> <a href="/?keywords=">首页</a></template>
           </el-menu-item>
-          <!-- <el-menu-item index="1">
-            <i class="el-icon-s-help"></i>
-            <template #title> <a href="/?keywords=">文章</a></template>
-          </el-menu-item> -->
-
           <el-submenu index="2">
             <template #title>
               <i class="el-icon-star-on"></i>
@@ -57,11 +51,15 @@
           </el-submenu>
           <el-menu-item index="3">
             <i class="el-icon-s-order"></i>
-            <template #title>归档</template>
+            <template #title>
+               <router-link :to="`/timeline`">归档</router-link>
+            </template>
           </el-menu-item>
           <el-menu-item index="4">
             <i class="el-icon-s-cooperation"></i>
-            <template #title>开源</template>
+            <template #title>
+              <router-link :to="`/open_source`">开源</router-link>
+            </template>
           </el-menu-item>
 
           <el-menu-item index="5">
@@ -165,6 +163,7 @@ import logo from "../../assets/logo.jpg";
 import { mapState } from "vuex";
 
 import store from "../../store";
+  import { h } from 'vue';
 export default {
   name: "Nav",
   components: { Drawer, DialogLogin },
@@ -201,6 +200,11 @@ export default {
       let style =
         localStorage.getItem("style") == "bootstarp" ? "element" : "bootstarp";
       store.dispatch("setTyple", style);
+      let name = style =='bootstarp' ? '简约' :'酷炫';
+      this.$notify({
+          title: '主题切换成功🍊',
+          message: h('i', { style: 'color: teal'}, '这是一款'+name+'类型主题')
+        });
     },
     logout() {
       this.$confirm("是否退出登录?", "提示", {

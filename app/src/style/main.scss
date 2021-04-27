@@ -319,25 +319,3 @@ nav {
    }
 }
 
-// 重写button样式
-.el-button--menu.is-active,
-.el-button--menu:active {
-   opacity: 0.9;
-   color: #fff;
-}
-
-.el-button--menu:focus,
-.el-button--menu:hover {
-   opacity: 0.9;
-   color: #fff;
-}
-
-.el-button--menu {
-   opacity: 0.3;
-   background-color: #5d5858;
-   border: 1px solid hsla(0, 0%, 100%, 0.6);
-   color: #fff;
-   transition: left 0.3s ease;
-   text-transform: uppercase;
-   border-radius: 3px;
-}

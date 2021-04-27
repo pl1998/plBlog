@@ -1,7 +1,7 @@
 <template>
   <div class="container" v-wechat-title="article.title">
     <div class="row">
-       <div class="col-sm-2"></div>
+      <div class="col-sm-2"></div>
       <!-- <LeftSidebar></LeftSidebar> -->
       <div class="col-sm-8 m-2 text-left bg article-preview">
         <el-skeleton v-if="!loading" :rows="20" animated />
@@ -36,7 +36,7 @@
           </div>
           <br />
           <br />
-   <!-- id="vditorPreview"
+          <!-- id="vditorPreview"
             class="vditor-reset" -->
           <!-- editor-preview-side editor-preview-active-side -->
           <div
@@ -50,24 +50,13 @@
     </div>
     <!-- 评论组件 -->
     <div class="row">
-      <div class="col-sm-2 m-2 p-2"></div>
+      <div class="col-sm-2"></div>
       <div class="col-sm-8 m-2 bg">
         <el-empty v-if="!isTopic" description="暂无评论"></el-empty>
-        <!-- <div v-if="isTopic" class="m-2">
-          <h5>
-            <i class="fa fa-comments mr-2"></i>总共{{
-              article.browse_count
-            }}条评论
-          </h5>
-        </div> -->
-        <div
-          class="commons"
-          v-for="topic in topics"
-          :key="topic.id"
-        >
+        <div class="commons" v-for="topic in topics" :key="topic.id">
           <div class="commons-header">
             <div class="float-left">
-              <img class="reply-avatar" :src="topic.user.avatar"/>
+              <img class="reply-avatar" :src="topic.user.avatar" />
             </div>
             <div class="commons-header-one">
               <div class="float-left pl-1" style="">
@@ -177,7 +166,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-2 m-2 p-2"></div>
+      <div class="col-sm-2"></div>
       <div class="col-sm-8 bg m-2 p-4">
         <h5 class="text-left">评论</h5>
         <el-form
@@ -212,8 +201,7 @@
   </div>
 </template>
 <script>
-
-import Api from "../api/article";
+import ArticleApi from "../api/article";
 import topicApi from "../api/topic";
 import marked from "marked";
 import { mapState } from "vuex";
@@ -261,7 +249,6 @@ export default {
   },
   methods: {
     onReply(e) {
-      console.log(e);
       {
         document.querySelector("#reply").scrollIntoView(true);
       }
@@ -286,22 +273,14 @@ export default {
       });
     },
     delTopic(id) {
-      topicApi
-        .delTopics(id)
-        .then((response) => {
-          const { code, message } = response.data;
-          if (code == 200) {
-            ElMessage("删除成功");
-            this.getTopcs(this.articleId);
-          } else {
-            ElMessage(message);
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-          this.refresh();
-          ElMessage("用户登录过期");
+      topicApi.delTopics(id).then((response) => {
+        const { message } = response;
+
+        ElMessage.success({
+          message: message,
         });
+        this.getTopcs(this.articleId);
+      });
     },
     refresh() {
       Cookies.remove("auth");
@@ -348,23 +327,12 @@ export default {
             user_id: this.userId,
             topic_id: this.topidId,
           };
-          topicApi
-            .createTopics(data)
-            .then((response) => {
-              const { code, message } = response.data;
-              if (code == 200) {
-                ElMessage("评论成功");
-                this.subLoading(false);
-                this.getTopcs(this.articleId);
-              } else {
-                ElMessage(message);
-              }
-            })
-            .catch((error) => {
-                console.log(error)
-              this.refresh();
-              ElMessage("失败");
-            });
+          topicApi.createTopics(data).then((response) => {
+            const { message } = response;
+            ElMessage.success({ message: message });
+            this.subLoading(false);
+            this.getTopcs(this.articleId);
+          });
         }
       }
     },
@@ -392,8 +360,8 @@ export default {
     },
     comments() {},
     getArticle() {
-      Api.getArticle(this.articleId).then((response) => {
-        const { data } = response.data;
+      ArticleApi.getArticle(this.articleId).then((response) => {
+        const { data } = response;
         data.content = marked(data.content);
         this.article = data;
         this.loading = true;
@@ -434,7 +402,6 @@ export default {
 }
 
 .commons::before {
-
   top: 11px;
   right: 100%;
   left: 44px;
@@ -448,7 +415,6 @@ export default {
   border-width: 8px;
   border-right-color: #d4e0e8;
   margin-left: -40px;
-
 }
 
 .review {

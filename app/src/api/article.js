@@ -1,6 +1,4 @@
-import axios from "axios";
-var baseUrl = process.env.VUE_APP_BASE_API
-
+import {get} from '../request/http'
 
 export default {
     /**
@@ -8,25 +6,23 @@ export default {
      * @param {*} data 
      */
     getArticles:function(data){
-        return axios.get(baseUrl+'/article',{
-            params:data
-        })
+        return get('/article',data)
     },
     /**
      * 文章详情
      * @param {*} data 
      */
     getArticle:function(id){
-        return axios.get(baseUrl+'/article/'+id)
+        return get('/article/'+id)
     },
     /**
      * 热门文章
      */
     getHots:function(){
-        return axios.get(baseUrl+'/ho_list')
+        return get('/ho_list')
     },
     ArticleArchive:function(){
-        return axios.get(baseUrl+'/article_archive')
+        return get('/article_archive')
     }
 
 } 

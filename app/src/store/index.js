@@ -11,14 +11,14 @@ export default createStore({
     article: undefined,
     content: undefined,
     archives: [],
-    auth: Cookies.get('auth') ? true : false, 
+    auth: Cookies.get('auth') ? true : false,
     users: localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : false,
-    token:  Cookies.get('token') || undefined,
-    topics:[],
-    isTopic:false,
-    websiteInfo:JSON.parse(localStorage.getItem('websiteInfo')) || false,
-    projects:localStorage.getItem('projects'),
-    style:localStorage.getItem('style') ? localStorage.getItem('style') :'bootstarp'
+    token: Cookies.get('token') || undefined,
+    topics: [],
+    isTopic: false,
+    websiteInfo: JSON.parse(localStorage.getItem('websiteInfo')) || false,
+    projects: localStorage.getItem('projects'),
+    style: localStorage.getItem('style') ? localStorage.getItem('style') : 'bootstarp'
   },
   mutations: {
     updateArticles(state, list) {
@@ -33,9 +33,9 @@ export default createStore({
     updatehots(state, list) {
       state.hots = list;
     },
-    updateProject(state,list){
+    updateProject(state, list) {
       state.projects = list
-      localStorage.setItem('projects',list)
+      localStorage.setItem('projects', list)
     },
     updateArticleArchive(state, list) {
       state.archives = list;
@@ -43,122 +43,124 @@ export default createStore({
     updateUsers(data) {
       localStorage.setItem('users', data, 7200)
     },
-    delAuth(state,auth){
-      state.auth=auth
+    delAuth(state, auth) {
+      state.auth = auth
       Cookies.remove('token')
       Cookies.remove('auth')
-   
+
       localStorage.removeItem('users')
     },
-    setAuth(state,auth){
+    setAuth(state, auth) {
       state.auth = auth
-      Cookies.set('auth', auth,{expires:604700})
-    
+      Cookies.set('auth', auth, { expires: 604700 })
+
     },
-    setUsers(state,users){
+    setUsers(state, users) {
       state.users = users
       localStorage.set('users', users)
     },
-    setToken(state,token){
+    setToken(state, token) {
       state.token = token
-      Cookies.set('token', token,{expires:604700})
+      Cookies.set('token', token, { expires: 604700 })
     },
-    updateTopics(state,topics){
+    updateTopics(state, topics) {
       state.topics = topics
     },
-    updateIsTopics(state,isTopic){
+    updateIsTopics(state, isTopic) {
       state.isTopic = isTopic
     },
-    updateAuth(state,auth) {
-      Cookies.set('auth', auth,{expires:604700})
+    updateAuth(state, auth) {
+      Cookies.set('auth', auth, { expires: 604700 })
       state.auth = true
     },
     updateToken(token) {
-      Cookies.set('token', token,{expires:604700})
+      Cookies.set('token', token, { expires: 604700 })
     },
-    updateWebsiteInfo(state,data){
+    updateWebsiteInfo(state, data) {
       state.websiteInfo = JSON.stringify(data)
-      localStorage.setItem('websiteInfo',JSON.stringify(data))
+      localStorage.setItem('websiteInfo', JSON.stringify(data))
     },
-    SET_STYLE(state,style){
-      state.style=style
-      localStorage.setItem('style',style)
+    SET_STYLE(state, style) {
+      state.style = style
+      localStorage.setItem('style', style)
     }
   },
   actions: {
-    setTyple({commit},style){
-      commit('SET_STYLE',style)
-
+    setTyple({ commit }, style) {
+      commit('SET_STYLE', style)
     },
-    getWebsiteInfo({commit}){
-      if(this.state.websiteInfo==false){
+    getWebsiteInfo({ commit }) {
+      if (this.state.websiteInfo == false) {
         authApi.getWebsiteInfo()
-            .then((response) => {
-              const { data } = response.data
-              commit('updateWebsiteInfo', data)
-            })
+          .then((response) => {
+            const { data } = response
+            commit('updateWebsiteInfo', data)
+          })
       }
     },
-    getArticleList({ commit }, data) {
-      ArticleApi.getArticles(data)
+    // getArticleList({ commit }, data) {
+    //   ArticleApi.getArticles(data)
+    //     .then((response) => {
+    //       const { data } = response
+    //       commit('updateArticles', data.list)
+    //     })
+    // },
+    getUsers({ commit }, token) {
+      Cookies.set('token',token,{ expires: 604700 })
+      this.state.token = token
+      authApi.me()
         .then((response) => {
-          const { data } = response.data
-          commit('updateArticles', data.list)
-        })
-    },
-     getUsers({commit},token) {
-      authApi.me(token)
-        .then((response) => {
-          let users = JSON.stringify(response.data)
-          localStorage.setItem('users',users)
+          let users = JSON.stringify(response)
+          localStorage.setItem('users', users)
           this.state.users = users
-          Cookies.set('token',token,{expires:604700})
-          commit('updateAuth',true)
-          ElMessage('登录成功')
+          Cookies.set('token', token, { expires: 604700 })
+          commit('updateAuth', true)
+          ElMessage.success({
+            message: '登录成功'
+          })
         })
     },
-    getSourceList(){
+    getSourceList({commit}){
       authApi.getSourceList()
       .then((response) => {
-        const { data } = response.data
+        const { data } = response
         commit('updateProject', data)
-       
+
       })
     },
-    getArticles({ commit }, id) {
-      ArticleApi.getArticle(id)
-        .then((response) => {
-          const { data } = response.data
-          commit('updateArticle', data)
-          commit('updateContent', data.content)
-        })
-    },
+    // getArticles({ commit }, id) {
+    //   ArticleApi.getArticle(id)
+    //     .then((response) => {
+    //       const { data } = response
+    //       commit('updateArticle', data)
+    //       commit('updateContent', data.content)
+    //     })
+    // },
     userLogout({ commit }) {
-      //this.state.auth=false
-   
-      let token = Cookies.get('token')
       commit('delAuth',false)
-      Cookies.remove('auth')
-      Cookies.remove('token')
- 
-      authApi.logout(token)
+      authApi.logout()
         .then((response) => {
-          const {data} =  response.data
-          console.log(data)
-          ElMessage('退出登录成功')
+          const {data} =  response
+          Cookies.remove('token')
+          Cookies.remove('auth')
+          ElMessage.success({
+            message:data.message
+          })
         })
     },
     getHotList({ commit }) {
-      ArticleApi.getHots()
-        .then((response) => {
-          const { data } = response.data
-          commit('updatehots', data)
-        })
+      if (this.state.style == 'bootstarp') {
+        ArticleApi.getHots()
+          .then((response) => {
+            const { data } = response
+            commit('updatehots', data)
+          })
+      }
     },
     getArticleArchive({ commit }) {
       ArticleApi.ArticleArchive()
         .then((response) => {
-          const { data } = response.data
+          const { data } = response
           commit('updateArticleArchive', data)
         })
     },
@@ -166,8 +168,7 @@ export default createStore({
     {
       topicApi.getTopics(id)
       .then((response) => {
-        const { data } = response.data
-        console.log(Object.keys(data))
+        const { data } = response
          if(Object.keys(data).length!=0){
           commit('updateTopics',data)
           commit('updateIsTopics',true)

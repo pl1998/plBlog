@@ -9,7 +9,6 @@
 					<h5><a href="https://www.miit.gov.cn/">备案/许可证编号为:{{websiteInfo.license}}</a></h5>
 				</div>
 			</div>
-
 			<div class="col-6 text-right-6 footer-logo">
 				<a v-for="site in websiteInfo.website" :key="site.title" :title="site.title" :href="site.website_url">
 							<img style="width:25px" :src="site.website_img">
@@ -20,13 +19,7 @@
 	</footer>
 </template>
 <script>
-import logo from "../../assets/logo.jpg";
-import laravelacademy from "../../assets/laravelacademy.png";
-import laravelblog from "../../assets/laravel_blog.png"
-import element from "../../assets/element.png"
-import bootstrap from "../../assets/bootstap.png"
 import {mapState} from "vuex";
-
 	export default {
 		name:"Footer",
     computed:{
