@@ -1,7 +1,7 @@
 <template>
 <el-row v-if="style=='element'" :gutter="20">
-  <el-col :span="4"></el-col>
-  <el-col :span="16">
+  <el-col :xs="1" :sm="2" :lg="4"></el-col>
+  <el-col  :xs="22" :sm="20" :lg="16">
      <div class="card card-content mt-3" :key="list.id" v-for="list in lists">
           <h5>
             <a
