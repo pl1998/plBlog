@@ -6,27 +6,25 @@
  * [炫酷ui](https://88250.b3log.org/)
  * [简洁ui](https://www.louislivi.com/)
  
+ 
 [博客地址](https://pltrue.top/)
+
+
 #### 实现了一些小功能
 
 * 主题切换
 
-![](https://cdn.learnku.com/uploads/images/202104/27/32593/75p9l93jEn.gif!large)
+![最新的博客开源咯](https://cdn.learnku.com/uploads/images/202104/27/32593/75p9l93jEn.gif!large)
 
 * 前后端分离下第三方授权登录
 
-![](https://cdn.learnku.com/uploads/images/202104/27/32593/3odHRNEdIO.gif!large)
+![最新的博客开源咯](https://cdn.learnku.com/uploads/images/202104/27/32593/3odHRNEdIO.gif!large)
 * 响应式
 
 ![最新的博客开源咯](https://cdn.learnku.com/uploads/images/202104/27/32593/Fshu0ybfGF.png!large)
 
-
 ![最新的博客开源咯](https://cdn.learnku.com/uploads/images/202104/27/32593/dKLNrACCAC.png!large)
-  * 模仿论坛样式的二级评论(ps 模范不到位 。挺丑的感觉)
-
-![最近写的一个小小博客~~](https://cdn.learnku.com/uploads/images/202104/27/32593/YebDBjnnML.png!large)
- * 评论框监听渲染(这个功能很简单我就不上图了。
-
+  
 
 
 #### 前端使用到的一些组件和库
@@ -37,6 +35,7 @@
    * `axios` 封装了请求和响应拦截器 处理`api`异常逻辑
    * `simplemde`+`highlight` maradown渲染以及代码高亮
    * `nprogress`实现进度条
+   
    
 #### 后端没啥好说的curd
   *  jwt 前后端分离下身份验证
@@ -55,12 +54,13 @@
   * [vue3](https://www.vue3js.cn/docs/zh)
   * [element-plus](https://github.com/element-plus/element-plus)
   * [laravel8.x](https://learnku.com/docs/laravel/8.x/upgrade/9352)
+  
 #### 前端UI参考
   * [炫酷ui](https://88250.b3log.org/)
   * [简洁ui](https://www.louislivi.com/)
   *
 
-  
+ 
 #### 前端安装集成
 
   * 前端
