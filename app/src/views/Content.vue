@@ -29,7 +29,7 @@
           <br />
           <div class="label mt-1">
             <router-link
-              :to="`/article?keywords` + article.label"
+              :to="`/?keywords=` + article.label"
               class="btn btn-danger float-left"
               >{{ article.label }}</router-link
             >

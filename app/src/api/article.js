@@ -1,5 +1,4 @@
 import {get} from '../request/http'
-
 export default {
     /**
      * 文章列表

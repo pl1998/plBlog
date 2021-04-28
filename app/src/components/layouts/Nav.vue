@@ -1,6 +1,7 @@
 <template>
   <div :class="['menu-nav', 'bg', style == 'element' ? 'nav-h' : '']">
     <div class="menu-h" v-if="style == 'element'">
+      
       <div class="float-right mt-4">
         <el-button
           size="small"
@@ -45,7 +46,7 @@
             </el-menu-item>
             <el-menu-item index="2-4">
               <template #title>
-                <a class="a-text" href="/?keywords=Js">Js</a>
+                <a class="a-text" href="/?keywords=Linux">Linux</a>
               </template>
             </el-menu-item>
           </el-submenu>
@@ -109,7 +110,7 @@
           <el-menu-item index="2-3"
             ><a class="a-text" href="/?keywords=Js">Js</a></el-menu-item
           >
-          <el-menu-item index="2-3"
+          <el-menu-item index="2-4"
             ><a class="a-text" href="/?keywords=Linux">Linux</a></el-menu-item
           >
         </el-submenu>

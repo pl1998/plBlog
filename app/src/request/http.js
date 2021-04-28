@@ -6,7 +6,6 @@ import store from '@/store/index';
 
 axios.defaults.baseURL = process.env.VUE_APP_BASE_API
 axios.defaults.timeout = 10000
-
 // 请求拦截器
 axios.interceptors.request.use(
     config => {
@@ -20,8 +19,6 @@ axios.interceptors.request.use(
     error => {
         return Promise.error(error);
     })
-
-
 // 响应拦截器
 axios.interceptors.response.use(
     response => {
