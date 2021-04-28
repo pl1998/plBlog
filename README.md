@@ -1,5 +1,7 @@
 ## 基于vue3+element-plus+laravel8.x构建的前后端分离的博客应用
 
+> 最新的博客开源啦～～～ 哈哈哈。利用空余时间将以前的老博客更新重写了一下。模仿了两个博客的ui。基于 vue3+element-plus+laravel8.x前后端分离构建的一款博客应用。
+
 #### 前端UI参考
  * [炫酷ui](https://88250.b3log.org/)
  * [简洁ui](https://www.louislivi.com/)
@@ -11,10 +13,7 @@
 
 ![](https://cdn.learnku.com/uploads/images/202104/27/32593/75p9l93jEn.gif!large)
 
-
 * 前后端分离下第三方授权登录
-
-
 
 ![](https://cdn.learnku.com/uploads/images/202104/27/32593/3odHRNEdIO.gif!large)
 * 响应式
@@ -23,13 +22,31 @@
 
 
 ![最新的博客开源咯](https://cdn.learnku.com/uploads/images/202104/27/32593/dKLNrACCAC.png!large)
-
-
-* 模仿论坛样式的二级评论(ps 模范不到位 。挺丑的感觉)
+  * 模仿论坛样式的二级评论(ps 模范不到位 。挺丑的感觉)
 
 ![最近写的一个小小博客~~](https://cdn.learnku.com/uploads/images/202104/27/32593/YebDBjnnML.png!large)
  * 评论框监听渲染(这个功能很简单我就不上图了。
+
+
+
+#### 前端使用到的一些组件和库
+   * `element-plus` 处理封装一些组件其他基本是使用了ui框架提供的
+   * `vue-wechat-title` 页面title渲染
+   * `vue-router` 前端路由
+   *` vuex`状态管理、`cookie`(存储token用户状态) `localStorage` 用户信息 数据缓存
+   * `axios` 封装了请求和响应拦截器 处理`api`异常逻辑
+   * `simplemde`+`highlight` maradown渲染以及代码高亮
+   * `nprogress`实现进度条
+   
+#### 后端没啥好说的curd
+  *  jwt 前后端分离下身份验证
+  *  redis 缓存热点文章 异步队列处理提交评论解析ip用户的地址信息(守护进程消费)
+  *  使用了自己开发的包实现了第三方登录 [thirdparty_oauth](https://github.com/pl1998/thirdparty_oauth)
+  * dcat-admin快速开发的管理后台
+  * 评论curd
+  
  
+ #### 关于搭建 
  
   * [前端源码](/app/)
   * [后端源码](/apiblog/)
@@ -42,16 +59,7 @@
   * [炫酷ui](https://88250.b3log.org/)
   * [简洁ui](https://www.louislivi.com/)
   *
-    
-#### 模块
-  * 登录第三方授权+jwt token 授权 使用了自己开发的[第三方登录包](https://github.com/pl1998/thirdparty_oauth) `thirdparty_oauth`
-  * 评论模块
-  * element组件:时间轴、组件分离、分页 导航栏等组件
-  * job队列异步记录访客ip以及地址(守护进程消费)
-  * 利用redis有序集合缓存热门排行榜
-  * 后台使用了[dcat-admin](https://learnku.com/docs/dcat-admin/2.x)
-  * 前端新增主题切换
-  * 等待完善...
+
   
 #### 前端安装集成
 
