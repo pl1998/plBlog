@@ -18,7 +18,8 @@ export default createStore({
     isTopic: false,
     websiteInfo: JSON.parse(localStorage.getItem('websiteInfo')) || false,
     projects: localStorage.getItem('projects'),
-    style: localStorage.getItem('style') ? localStorage.getItem('style') : 'bootstarp'
+    style: localStorage.getItem('style') ? localStorage.getItem('style') : 'element',
+    categorys:localStorage.getItem('categorys') ? JSON.parse(localStorage.getItem('categorys')) : []
   },
   mutations: {
     updateArticles(state, list) {
@@ -83,6 +84,10 @@ export default createStore({
     SET_STYLE(state, style) {
       state.style = style
       localStorage.setItem('style', style)
+    },
+    updateCate(state, list){
+      localStorage.setItem('categorys',JSON.stringify(list))
+      state.category=JSON.stringify(list)
     }
   },
   actions: {
@@ -176,6 +181,14 @@ export default createStore({
            commit('updateTopics',[])
            commit('updateIsTopics',false)
          }
+      })
+    },
+    getcategorys({commit})
+    {
+      ArticleApi.getCategory()
+      .then((response) => {
+        const { data } = response
+        commit('updateCate',data)
       })
     }
   },

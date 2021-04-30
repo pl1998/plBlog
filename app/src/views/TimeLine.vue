@@ -44,7 +44,7 @@
                 :color="archive.color"
                 :size="archive.size"
                 placement="top">
-             <a :href="`/article/`+archive.id">
+             <router-link :to="`/article/`+archive.id">
                <el-card>
                  <div class="row bg">
                    <div class="col-sm-4">
@@ -57,7 +57,7 @@
                  </div>
                  <p></p>
                </el-card>
-             </a>
+             </router-link>
             </el-timeline-item>
           </el-timeline>
       </el-col>

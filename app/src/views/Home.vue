@@ -4,10 +4,10 @@
   <el-col  :xs="22" :sm="20" :lg="16">
      <div class="card card-content mt-3" :key="list.id" v-for="list in lists">
           <h5>
-            <a
+            <router-link
               class="title float-left text-left"
-              :href="`/article/` + list.id+`#google_vignette`"
-              >{{ list.title }}</a
+              :to="`/article/` + list.id"
+              >{{ list.title }}</router-link
             >
           </h5>
   
@@ -48,10 +48,10 @@
       <div class="col-sm-6 m-0">
         <div class="card card-content" :key="list.id" v-for="list in lists">
           <h5>
-            <a
+            <router-link
               class="title float-left text-left"
-              :href="`/article/` + list.id"
-              >{{ list.title }}</a
+              :to="`/article/`+list.id"
+              >{{ list.title }}</router-link
             >
           </h5>
           <div class="label">
@@ -104,9 +104,9 @@
               <div class="content">
                 <time>{{ hot.created_at }}</time>
               </div>
-              <a :href="`/article/` + hot.id">
+              <router-link :to="`/article/` + hot.id">
                 {{ hot.title }}
-              </a>
+              </router-link>
             </div>
           </article>
         </div>
@@ -126,6 +126,13 @@ export default {
   computed: {
     ...mapState(["hots","style"]),
   },
+  watch:{
+    $route(){
+       this.data.categoryId = this.$route.query.categoryId
+      this.data.keywords = this.$route.query.keywords
+       this.getList()
+    }
+  },
   data() {
     return {
       pageSize: 10,
@@ -139,13 +146,10 @@ export default {
         page: parseInt(this.$route.query.page)
           ? parseInt(this.$route.query.page)
           : 1,
-        keywords: this.$route.query.keywords,
+        keywords:this.$route.query.keywords,
+        categoryId:this.$route.query.categoryId
       },
     };
-  },
-  created() {
-    this.getList();
-    this.$store.dispatch("getHotList");
   },
   methods: {
     getList() {
@@ -173,6 +177,10 @@ export default {
       this.getList();
     },
   },
+  mounted:function(){
+     this.getList();
+    this.$store.dispatch("getHotList");
+  }
 };
 </script>
 

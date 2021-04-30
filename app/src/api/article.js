@@ -22,6 +22,9 @@ export default {
     },
     ArticleArchive:function(){
         return get('/article_archive')
+    },
+    getCategory:function(){
+        return get('/getCategory')
     }
 
 } 

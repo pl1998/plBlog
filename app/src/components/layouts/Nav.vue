@@ -265,7 +265,7 @@ export default {
   margin-right: 20px;
 }
 .nav-h {
-  background: url("../../assets/header-bg.jpg") no-repeat 50%;
+  background: url("https://cdn.pltrue.top/header-bg.jpg") no-repeat 50%;
   height: 852px;
   background-repeat: no-repeat;
   overflow: hidden;
