@@ -94,9 +94,9 @@ class ArticleController extends AdminController
         return Form::make(new Articles(), function (Form $form) {
             $form->display('id');
             $form->text('title')->required();
-            $form->image('cover_img')->disk('public')->required();
+            $form->image('cover_img')->disk(env('DISK'))->required();
             $form->textarea('description')->required();
-            $form->markdown('content')->disk('public')->required();
+            $form->markdown('content')->disk(env('DISK'))->required();
             $form->switch('status')->options([
                 0=>'正常',
                 1=>'关闭'

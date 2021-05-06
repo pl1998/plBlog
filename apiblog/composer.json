@@ -16,6 +16,7 @@
         "jenssegers/agent": "^2.6",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "overtrue/laravel-filesystem-qiniu": "^1.0",
         "pltrue/thirdparty_oauth": "v1.6",
         "torann/geoip": "^3.0",
         "tymon/jwt-auth": "1.*"

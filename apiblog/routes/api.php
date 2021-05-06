@@ -23,8 +23,6 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
     Route::get('me', 'AuthController@me');
 });
-
-
 Route::get('/article','ArticlesController@index');
 Route::get('/article/{id}','ArticlesController@show')->middleware('access.record');
 Route::get('/ho_list','ArticlesController@hotList');
@@ -42,6 +40,10 @@ Route::get('/weiboCallBack','OauthController@weiboCallBack');
 
 //网址一些基本信息
 Route::get('/getWebsiteInfo','AppController@getWebsiteInfo');
+Route::get('/getSourceProject','AppController@getSourceProject');
+Route::get('/getCategory','AppController@getCategory');
+
+
 
 
 

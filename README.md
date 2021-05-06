@@ -77,7 +77,7 @@ npm run serve //热开发 加载.env.development配置文件
 npm run build:prod //打包发布 加载 .env.production配置文件
 ```
 
-#### 后端安装集成(记得将sql文件导入并配置好数据库和redis)
+#### 后端安装集成(记得将sql文件(latent_blog)导入并配置好数据库和redis)
   * .env 配置(已经配置好了)
 
 ```shell script
