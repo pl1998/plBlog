@@ -12,8 +12,8 @@ class Articles extends Models
 
     public function getLabelAttribute($key)
     {
-       $label =  explode(',',$key);
-       return $label[0];
+        $label =  explode(',',$key);
+        return $label[0];
     }
 
     public function admin()
@@ -27,4 +27,20 @@ class Articles extends Models
         return $this->hasMany(Administrator::class,'id','user_id');
     }
 
+    public function getCoverImgAttribute($key)
+    {
+        if(strstr($key,'http')==false){
+            if(env('DISK')=='qiniu'){
+                return  env('QINIU_DOMAIN').'/'.$key;
+            }else{
+                return  env('APP_URL').'/storage/'.$key;
+            }
+        }
+        return  $key;
+    }
+
+    public function category()
+    {
+        return $this->hasOne(Category::class,'category_id','id');
+    }
 }

@@ -40,8 +40,9 @@
             class="vditor-reset" -->
           <!-- editor-preview-side editor-preview-active-side -->
           <div
+        
             @click="proxyImage"
-            class="vditor-reset articles article__content"
+            class="markdown-reply articles article__content"
             v-html="article.content"
             v-highlight
           ></div>

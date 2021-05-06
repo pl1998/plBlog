@@ -148,3 +148,27 @@
 .hljs-doctag,.hljs-keyword,.hljs-literal,.hljs-section,.hljs-selector-id,.hljs-selector-tag,.hljs-title,.hljs-type {
     font-weight: 700
 }
+
+.markdown-reply blockquote {
+margin: 20px 0!important;
+background-color: #f5f8fc;
+padding: 1rem;
+color: #8796a8;
+border-left: none;
+}
+
+.markdown-reply blockquote,table,pre,ul,ol{
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 30px;
+}
+
+.markdown-reply h3{
+    font-size: 1.2em;
+    line-height: 1.43;
+}
+.markdown-reply pre{
+    margin: 1.5em -35px;
+    border-radius: 0;
+    padding: 1.5em 35px;
+}
