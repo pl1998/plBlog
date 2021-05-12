@@ -155,13 +155,22 @@ background-color: #f5f8fc;
 padding: 1rem;
 color: #8796a8;
 border-left: none;
+ 
 }
 
 .markdown-reply blockquote,table,pre,ul,ol{
     margin-top: 0;
     margin-bottom: 10px;
     line-height: 30px;
+    font-weight: bold;
 }
+.markdown-reply  img {
+    box-sizing: initial;
+    background-color: var(--color-bg-primary);
+    border-style: none;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 30px #ccc;
+  }
 
 .markdown-reply h3{
     font-size: 1.2em;
@@ -170,5 +179,16 @@ border-left: none;
 .markdown-reply pre{
     margin: 1.5em -35px;
     border-radius: 0;
-    padding: 1.5em 35px;
+    padding: 0.5em 35px;
 }
+/* .markdown-reply code{
+    margin: 5px;
+    color: #858080;
+    border-radius: 4px;
+    background-color: #f9fafa;
+    border: 1px solid #e4e4e4;
+    max-width: 740px;
+    overflow-x: auto;
+    font-size: 14px;
+    padding: 1px 2px;
+} */

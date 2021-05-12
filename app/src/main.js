@@ -11,7 +11,7 @@ import Cookies from 'js-cookie'
 //vue-router
 import router from './router'
 //动画库
-import animated from 'animate.css'
+// import animated from 'animate.css'
 //nprogress 进度条功能
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -58,7 +58,7 @@ import {bubbles} from 'vue-canvas-effect';
 app.component('Vue-Canvas', bubbles);
 
 app.use(ElementPlus)
-.use(animated)
+
 .use(Cookies)
 .use(NProgress)
 .use(VueWechatTitle)

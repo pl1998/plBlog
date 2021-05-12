@@ -30,6 +30,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~animate.css";
 
 #app {
+   font-family: Helvetica,Arial,PingFang SC,Noto Sans,Roboto,Microsoft Yahei,sans-serif;
   background-color: #f7f7f7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

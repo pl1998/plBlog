@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm-2"></div>
       <!-- <LeftSidebar></LeftSidebar> -->
-      <div class="col-sm-8 m-2 text-left bg article-preview">
+      <div class=" col-sm-8 m-2 text-left bg article-preview">
         <el-skeleton v-if="!loading" :rows="20" animated />
         <div v-else>
           <div class="bg">
@@ -45,7 +45,14 @@
             class="markdown-reply articles article__content"
             v-html="article.content"
             v-highlight
-          ></div>
+          >
+          </div>
+           <div class="markdown-reply articles article__content">
+             <blockquote>
+               <p>最后欢迎👏 关注我的公众号 🔭</p>
+             </blockquote>
+             <img @click="proxyImage" class="weixin-img" src="https://cdn.pltrue.top/weixinsousou1.png">
+           </div>
         </div>
       </div>
     </div>
@@ -375,6 +382,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.weixin-img{
+  border-radius: 5px;
+  width: 85%;
+  margin-left: 15%;
+  border-left: 5px solid #e7ebef;
+}
 .commons {
   border: 1px solid #ddd;
   padding: 5px 5px 5px 5px;

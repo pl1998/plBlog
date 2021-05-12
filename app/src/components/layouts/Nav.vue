@@ -1,7 +1,6 @@
 <template>
   <div :class="['menu-nav', 'bg', style == 'element' ? 'nav-h' : '']">
     <div class="menu-h" v-if="style == 'element'">
-      
       <div class="float-right mt-4">
         <el-button
           size="small"
@@ -76,17 +75,17 @@
         </el-menu>
       </div>
     </div>
-    <div v-if="style == 'element'" class="container">
+    <div v-if="style == 'element'" class="container ">
       <div class="blog-title">
         <h2 class="h-size">latent的个人博客</h2>
         <p class="p-size">不成大牛,不改个签</p>
       </div>
       <Vue-Canvas id="canvas" :options="options"></Vue-Canvas>
     </div>
-    <div v-else class="container">
+    <div v-else class="container animate__animated animate__zoomIn">
       <el-menu
         :default-active="activeIndex"
-        class="menu el-menu-demo mb-5"
+        class="menu el-menu-demo mb-5 "
         style="border: none"
         mode="horizontal"
         @select="handleSelect"

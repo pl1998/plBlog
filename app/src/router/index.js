@@ -12,7 +12,7 @@ const  routerMap = [
       name: 'Home',
       component: Home,
       meta:{
-        title:'Latent 🔧📦🎉 Blog',
+        title:'Latent的个人Blog',
       }
     },
     {

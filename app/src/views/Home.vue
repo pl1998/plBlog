@@ -46,7 +46,7 @@
     <div class="row">
       <LeftSidebar></LeftSidebar>
       <div class="col-sm-6 m-0">
-        <div class="card card-content" :key="list.id" v-for="list in lists">
+        <div class="card card-content animate__animated animate__zoomIn" :key="list.id" v-for="list in lists">
           <h5>
             <router-link
               class="title float-left text-left"
@@ -69,7 +69,7 @@
               <img :src="list.cover_img" />
             </div>
           </div>
-          <div class="button is-size-7">
+          <div class="button is-size-7 ">
             <span class="float-left">
               <i class="fa fa-user mr-2"></i>Latent&nbsp;&nbsp;
             </span>
@@ -94,7 +94,7 @@
         />
       </div>
       <div class="col-sm-3 m-1">
-        <div class="card card-content">
+        <div class="card card-content animate__animated animate__zoomIn">
           <h5 class="menu-h3 text-left">热门文章</h5>
           <article class="media" v-for="hot in hots" :key="hot.id">
             <a href="">
