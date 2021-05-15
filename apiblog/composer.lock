@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85571d0b310cf9ae65b8424842783961",
+    "content-hash": "b92f09d3afb7db110a4c8aa1d3ea907b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2787,16 +2787,16 @@
         },
         {
             "name": "pltrue/thirdparty_oauth",
-            "version": "v1.6",
+            "version": "v2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pl1998/thirdparty_oauth.git",
-                "reference": "0ec47e3eeab63d6d33c700909974a806b9dc88c7"
+                "reference": "ed6803e1c376e297634f05db89fd149addbf763f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pl1998/thirdparty_oauth/zipball/0ec47e3eeab63d6d33c700909974a806b9dc88c7",
-                "reference": "0ec47e3eeab63d6d33c700909974a806b9dc88c7",
+                "url": "https://api.github.com/repos/pl1998/thirdparty_oauth/zipball/ed6803e1c376e297634f05db89fd149addbf763f",
+                "reference": "ed6803e1c376e297634f05db89fd149addbf763f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2806,7 +2806,7 @@
                 ]
             },
             "require": {
-                "guzzlehttp/guzzle": "6.3.1|^7.0.1"
+                "guzzlehttp/guzzle": "^7.2"
             },
             "type": "library",
             "extra": {
@@ -2831,12 +2831,12 @@
                     "email": "pltruenine@163.com"
                 }
             ],
-            "description": "这是一个第三方授权登录扩展包 目前支持github gitlab gitee  授权登录",
+            "description": "这是一个第三方授权登录扩展包。目前支持GITHUB、GITEE、谷歌、微博、微信、QQ等授权登录",
             "support": {
                 "issues": "https://github.com/pl1998/thirdparty_oauth/issues",
-                "source": "https://github.com/pl1998/thirdparty_oauth/tree/v1.6"
+                "source": "https://github.com/pl1998/thirdparty_oauth/tree/v2.0"
             },
-            "time": "2021-03-09T08:02:44+00:00"
+            "time": "2021-05-15T01:32:39+00:00"
         },
         {
             "name": "psr/container",
