@@ -181,6 +181,18 @@ border-left: none;
     border-radius: 0;
     padding: 0.5em 35px;
 }
+
+.markdown-reply table th {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+}
+td {
+    padding: 6px 13px;
+     border: 1px solid #ddd;
+    border: 1px solid #ddd;
+    display: table-cell;
+    vertical-align: inherit;
+}
 /* .markdown-reply code{
     margin: 5px;
     color: #858080;
