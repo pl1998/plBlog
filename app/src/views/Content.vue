@@ -40,7 +40,7 @@
             class="vditor-reset" -->
           <!-- editor-preview-side editor-preview-active-side -->
           <div
-        
+
             @click="proxyImage"
             class="markdown-reply articles article__content"
             v-html="article.content"
@@ -51,7 +51,7 @@
              <blockquote>
                <p>最后欢迎👏 关注我的公众号 🔭</p>
              </blockquote>
-             <img @click="proxyImage" class="weixin-img" src="https://cdn.pltrue.top/weixinsousou1.png">
+             <img @click="proxyImage" class="weixin-img" :src="wxImg">
            </div>
         </div>
       </div>
@@ -232,6 +232,7 @@ export default {
       rule: {
         comments: [{ required: true, message: "请输入内容" }],
       },
+      wxImg:process.env.VUE_APP_WX_IMG,
       html: "",
       articleId: this.$route.params.id,
       topidId: "",

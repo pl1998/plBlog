@@ -77,8 +77,8 @@
     </div>
     <div v-if="style == 'element'" class="container ">
       <div class="blog-title">
-        <h2 class="h-size">latent的个人博客</h2>
-        <p class="p-size">不成大牛,不改个签</p>
+        <h2 class="h-size">{{blogName}}</h2>
+        <p class="p-size">{{blogSign}}</p>
       </div>
       <Vue-Canvas id="canvas" :options="options"></Vue-Canvas>
     </div>
@@ -173,6 +173,8 @@ export default {
   },
   data() {
     return {
+      blogName:process.env.VUE_APP_NAME,
+      blogSign:process.env.VUE_APP_SIGN,
       isCollapse: true,
       btnValue: "隐藏",
       options: {

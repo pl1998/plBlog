@@ -27,7 +27,7 @@ class Articles extends Models
         return $this->hasMany(Administrator::class,'id','user_id');
     }
 
-    public function getCoverImgAttribute($key)
+    public function setCoverImgAttribute($key)
     {
         if(strstr($key,'http')==false){
             if(env('DISK')=='qiniu'){
