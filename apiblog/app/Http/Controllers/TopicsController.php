@@ -22,6 +22,10 @@ class TopicsController extends Controller
         $this->middleware('auth:api', ['except' => ['index']]);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index($id)
     {
       $data =   Topics::with(['user','childs'])
@@ -32,6 +36,11 @@ class TopicsController extends Controller
       return $this->success($data);
     }
 
+    /**
+     * 添加评论
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
          $request->validate([
@@ -67,7 +76,6 @@ class TopicsController extends Controller
                  'created_at'=>now()->toDate(),
                  'updated_at'=>now()->toDate()
              ];
-
          }
         $id = Topics::query()->insertGetId($install);
         EmailNotificationJob::dispatch($id);
@@ -75,7 +83,6 @@ class TopicsController extends Controller
 
          return $this->success();
     }
-
     public function delete($id)
     {
         if(Topics::query()->where('user_id',Auth::id())->where('id',$id)->exists()) {

@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-sm-2"></div>
       <!-- <LeftSidebar></LeftSidebar> -->
-      <div class=" col-sm-8 m-2 text-left bg article-preview">
+      <div class=" col-sm-8 m-2 text-left bg  article-preview">
+
+        <!-- article-preview -->
         <el-skeleton v-if="!loading" :rows="20" animated />
         <div v-else>
           <div class="bg">
@@ -269,6 +271,9 @@ export default {
     proxyImage: function (e) {
       if (e.target.tagName.toUpperCase() === "IMG") {
         window.open(e.target.src);
+      }
+      if (e.target.tagName.toUpperCase() === "PRE") {
+        console.log('测试')
       }
     },
     del(id) {

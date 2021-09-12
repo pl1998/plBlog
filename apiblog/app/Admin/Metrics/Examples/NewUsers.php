@@ -2,6 +2,7 @@
 
 namespace App\Admin\Metrics\Examples;
 
+use App\Models\VisitorRegistry;
 use Dcat\Admin\Widgets\Metrics\Line;
 use Illuminate\Http\Request;
 
@@ -16,14 +17,15 @@ class NewUsers extends Line
     {
         parent::init();
 
-        $this->title('New Users');
+        $this->title('总访问量');
         $this->dropdown([
-            '7' => 'Last 7 Days',
-            '28' => 'Last 28 Days',
-            '30' => 'Last Month',
-            '365' => 'Last Year',
+            '7' => '最近7天',
+            '30' => '最近一个月',
+            '365' => '最近一个年',
         ]);
     }
+
+
 
     /**
      * 处理请求
@@ -34,35 +36,47 @@ class NewUsers extends Line
      */
     public function handle(Request $request)
     {
+
+        $startTime = [
+            7=>now()->setDays(7),
+            30=>now()->setMonths(1),
+            365=>now()->setYears(365),
+        ];
+
         $generator = function ($len, $min = 10, $max = 300) {
             for ($i = 0; $i <= $len; $i++) {
                 yield mt_rand($min, $max);
             }
         };
-
+        if($request->get('option')){
+            $count = VisitorRegistry::query()
+                ->where('created_at','>',$startTime[$request->get('option')])
+                ->count();
+        }else{
+            $count =VisitorRegistry::query()->count();
+        }
         switch ($request->get('option')) {
             case '365':
                 // 卡片内容
-                $this->withContent(mt_rand(1000, 5000).'k');
+                $this->withContent($count);
                 // 图表数据
                 $this->withChart(collect($generator(30))->toArray());
                 break;
             case '30':
                 // 卡片内容
-                $this->withContent(mt_rand(400, 1000).'k');
+                $this->withContent($count);
                 // 图表数据
                 $this->withChart(collect($generator(30))->toArray());
                 break;
-            case '28':
-                // 卡片内容
-                $this->withContent(mt_rand(400, 1000).'k');
+            case '7':
+                $this->withContent($count);
                 // 图表数据
                 $this->withChart(collect($generator(28))->toArray());
                 break;
-            case '7':
             default:
                 // 卡片内容
-                $this->withContent('89.2k');
+
+                $this->withContent($count);
                 // 图表数据
                 $this->withChart([28, 40, 36, 52, 38, 60, 55,]);
         }

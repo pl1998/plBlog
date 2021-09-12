@@ -105,5 +105,4 @@ php artisan queue:work redis --sleep=3
   * 2021-04-20 新增文章图片跳转 新增二级评论
   * 加速你的laravel应用 新增 laravel octane 扩展 常驻内存 支持 请使用守护进程维护 nginx代理转发 
   
-#### 加我微信
-![wx](https://github.com/pl1998/laravel-casbin-admin/blob/master/img/wx.jpeg)
+

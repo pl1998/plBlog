@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <Nav></Nav>
+     <!-- <div class="frameset-im">
+         <frameset  cols="25%,50%,25%" style="z-index:1000px">
+      <frame src="http://im.pltrue.top/login"/>
+    </frameset>
+     </div> -->
     <router-view v-wechat-title="$route.meta.title"></router-view>
     <el-backtop :bottom="200"> </el-backtop>
     <Footer></Footer>
@@ -29,6 +34,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~font-awesome/css/font-awesome.min.css";
 @import "~animate.css";
 
+
 #app {
    font-family: Helvetica,Arial,PingFang SC,Noto Sans,Roboto,Microsoft Yahei,sans-serif;
   background-color: #f7f7f7;
@@ -41,5 +47,10 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   font-family: Muiicons;
   font-weight: normal;
   font-style: normal;
+  .frameset-im{
+    position: fixed;
+    top: 20%;
+    z-index: 999;
+  }
 }
 </style>

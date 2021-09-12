@@ -17,6 +17,11 @@ use Symfony\Component\HttpFoundation\Cookie;
 
 class OauthController extends Controller
 {
+    /**
+     * 回调方法
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Pl1998\ThirdpartyOauth\Exceptions\InvalidArgumentException
+     */
     public function githubCallBack()
     {
         $auth = new SocialiteAuth(config('oauth.github'));
@@ -36,6 +41,10 @@ class OauthController extends Controller
         return $this->respondWithToken($users);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Pl1998\ThirdpartyOauth\Exceptions\InvalidArgumentException
+     */
     public function giteeCallBack()
     {
         $auth = new SocialiteAuth(config('oauth.gitee'));
@@ -55,6 +64,10 @@ class OauthController extends Controller
         return $this->respondWithToken($users);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Pl1998\ThirdpartyOauth\Exceptions\InvalidArgumentException
+     */
     public function weiboCallBack()
     {
         $auth = new SocialiteAuth(config('oauth.weibo'));
@@ -74,6 +87,10 @@ class OauthController extends Controller
         return $this->respondWithToken($users);
     }
 
+    /**
+     * @param $users
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function respondWithToken($users)
     {
         $token = Auth::guard('api')->login($users);

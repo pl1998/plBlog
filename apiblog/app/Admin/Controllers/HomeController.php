@@ -8,7 +8,6 @@ use Dcat\Admin\Http\Controllers\Dashboard;
 use Dcat\Admin\Layout\Column;
 use Dcat\Admin\Layout\Content;
 use Dcat\Admin\Layout\Row;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -18,12 +17,9 @@ class HomeController extends Controller
             ->header('Dashboard')
             ->description('Description...')
             ->body(function (Row $row) {
-                $row->column(6, function (Column $column) {
-                    $column->row(Dashboard::title());
-                    $column->row(new Examples\Tickets());
-                });
 
-                $row->column(6, function (Column $column) {
+
+                $row->column(12, function (Column $column) {
                     $column->row(function (Row $row) {
                         $row->column(6, new Examples\NewUsers());
                         $row->column(6, new Examples\NewDevices());

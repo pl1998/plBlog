@@ -52,7 +52,7 @@
           <el-menu-item index="3">
             <i class="el-icon-s-order"></i>
             <template #title>
-               <router-link :to="`/timeline`">归档</router-link>
+              <router-link :to="`/timeline`">归档</router-link>
             </template>
           </el-menu-item>
           <el-menu-item index="4">
@@ -75,17 +75,20 @@
         </el-menu>
       </div>
     </div>
-    <div v-if="style == 'element'" class="container ">
+     
+    <div v-if="style == 'element'" class="container">
       <div class="blog-title">
-        <h2 class="h-size">{{blogName}}</h2>
-        <p class="p-size">{{blogSign}}</p>
+        <h2 class="h-size">{{ blogName }}</h2>
+        <p class="p-size">{{ blogSign }}</p>
       </div>
       <Vue-Canvas id="canvas" :options="options"></Vue-Canvas>
     </div>
+
+ 
     <div v-else class="container animate__animated animate__zoomIn">
       <el-menu
         :default-active="activeIndex"
-        class="menu el-menu-demo mb-5 "
+        class="menu el-menu-demo mb-5"
         style="border: none"
         mode="horizontal"
         @select="handleSelect"
@@ -163,7 +166,7 @@ import logo from "../../assets/logo.jpg";
 import { mapState } from "vuex";
 
 import store from "../../store";
-  import { h } from 'vue';
+import { h } from "vue";
 export default {
   name: "Nav",
   components: { Drawer, DialogLogin },
@@ -173,8 +176,8 @@ export default {
   },
   data() {
     return {
-      blogName:process.env.VUE_APP_NAME,
-      blogSign:process.env.VUE_APP_SIGN,
+      blogName: process.env.VUE_APP_NAME,
+      blogSign: process.env.VUE_APP_SIGN,
       isCollapse: true,
       btnValue: "隐藏",
       options: {
@@ -202,11 +205,15 @@ export default {
       let style =
         localStorage.getItem("style") == "bootstarp" ? "element" : "bootstarp";
       store.dispatch("setTyple", style);
-      let name = style =='bootstarp' ? '简约' :'酷炫';
+      let name = style == "bootstarp" ? "简约" : "酷炫";
       this.$notify({
-          title: '主题切换成功🍊',
-          message: h('i', { style: 'color: teal'}, '这是一款'+name+'类型主题')
-        });
+        title: "主题切换成功🍊",
+        message: h(
+          "i",
+          { style: "color: teal" },
+          "这是一款" + name + "类型主题"
+        ),
+      });
     },
     logout() {
       this.$confirm("是否退出登录?", "提示", {
@@ -321,7 +328,7 @@ export default {
   display: flex;
   top: 0px;
   left: 0px;
-  position:absolute;
+  position: absolute;
   justify-content: center;
   flex-direction: column;
   .h-size {
@@ -330,8 +337,8 @@ export default {
     font-size: 45px;
     color: #fff;
   }
-  .p-size{
-     etter-spacing: -1px;
+  .p-size {
+    etter-spacing: -1px;
     font-weight: 400;
     font-size: 20px;
     color: #fff;

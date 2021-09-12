@@ -19,6 +19,10 @@ class ArticlesController extends Controller
 
     protected static $hostArticles = 'hot_article';
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index(Request $request)
     {
 
@@ -30,18 +34,15 @@ class ArticlesController extends Controller
             ->orderByDesc('weight')
             ->orderByDesc('created_at')
             ->where('status',0);
-
         if($keywords){
             $query =   $query->where('label','like',"%$keywords%");
         }
-
-
         $total = $query->count();
-
-        $data = $query->forPage($page,$limit)->get();
-        foreach ($data as $val){
-            $val->cover_img = env('APP_URL').'/storage/'.$val->cover_img;
-        }
+        $data = $query->forPage($page,$limit)
+            ->get()->map(function ($item){
+                $item->cover_img = env('APP_URL').'/storage/'.$item->cover_img;
+                return $item;
+            });
 
         return $this->success([
             'list'=>$data,
@@ -52,6 +53,9 @@ class ArticlesController extends Controller
         ]);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function hotList()
     {
         $articleIds = Redis::connection()->client()->zRevRange(static::$hostArticles,0,5);
@@ -68,38 +72,44 @@ class ArticlesController extends Controller
                 ->limit(5)
                 ->get(['title','cover_img','description','id']);
         }
-        foreach ($articles as $value){
-            $value->cover_img = env('APP_URL').'/storage/'.$value->cover_img;
-        }
+
+        $articles = $articles->map(function ($item){
+            $item->cover_img = env('APP_URL').'/storage/'.$item->cover_img;
+            return $item;
+        });
 
         return $this->success($articles);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show($id)
     {
-        #Redis::connection()->client()->zIncrBy(static::$hostArticles,1,$id);
         $shows = Articles::query()->find($id);
-        #Articles::query()->where('id',$id)->increment('review_count');
         return $this->success($shows);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function ArticleArchive()
     {
-
         $list = Articles::query()
             ->orderByDesc('created_at')
             ->where('status',0)
-            ->get(['id','title','created_at','cover_img','description']);
-
-        foreach ($list as $key=> &$value){
-            $value->cover_img = env('APP_URL').'/storage/'.$value->cover_img;
-            if($key<3){
-                $value->icon='el-icon-more';
-                $value->color='#0bbd87';
-                $value->type='primary';
-                $value->size='large';
-            }
-        }
+            ->get(['id','title','created_at','cover_img','description'])
+            ->map(function ($item,$key){
+                $item->cover_img = env('APP_URL').'/storage/'.$item->cover_img;
+                if($key<3){
+                    $item->icon='el-icon-more';
+                    $item->color='#0bbd87';
+                    $item->type='primary';
+                    $item->size='large';
+                }
+                return $item;
+            });
 
         return $this->success($list);
     }

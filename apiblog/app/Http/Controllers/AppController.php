@@ -23,9 +23,7 @@ class AppController extends Controller
         if(!$data){
             $data =   WebsiteFooter::query()->where('status',0)
                 ->first(['name','logo','license','license_url','website'])->toArray();
-
             $data['logo'] = env('APP_URL').'/storage/'.$data['logo'];
-
             foreach ($data['website'] as &$val){
                 $val['website_img'] = env('APP_URL').'/storage/'.$val['website_img'];
             }

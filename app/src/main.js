@@ -36,9 +36,9 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 //引入markeown
 import 'github-markdown-css/github-markdown.css'
 import hljs from 'highlight.js'
-// import '../src/style/ui-vendors.css'
+import '../src/style/ui-vendors.css'
 import '../src/style/monokai-sublime.css'
-
+// import 'github-markdown-css'
 //
 
 const app = createApp(App)
