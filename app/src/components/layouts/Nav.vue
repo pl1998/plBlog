@@ -75,7 +75,7 @@
         </el-menu>
       </div>
     </div>
-     
+
     <div v-if="style == 'element'" class="container">
       <div class="blog-title">
         <h2 class="h-size">{{ blogName }}</h2>
@@ -84,7 +84,6 @@
       <Vue-Canvas id="canvas" :options="options"></Vue-Canvas>
     </div>
 
- 
     <div v-else class="container animate__animated animate__zoomIn">
       <el-menu
         :default-active="activeIndex"
@@ -272,6 +271,7 @@ export default {
   box-sizing: border-box;
   margin-right: 20px;
 }
+
 .nav-h {
   background: url("https://cdn.pltrue.top/header-bg.jpg") no-repeat 50%;
   height: 852px;
@@ -281,6 +281,7 @@ export default {
   position: relative;
 }
 .menu-h {
+  background: transparent;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -288,14 +289,40 @@ export default {
   height: 100%;
   width: 100%;
 }
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    background: transparent;
+}
+button:not(:disabled),
+[type="button"]:not(:disabled) {
+  color: #fff;
+  background: transparent;
+}
 
+button:not(:disabled),
+[type="button"]:not(:disabled):hover {
+  color: #fff;
+  background: transparent;
+}
+.m-4 ul {
+  border: 1px solid rgb(122, 120, 120);
+  background: transparent;
+  .el-menu-item  a {
+    color: #fff;
+  }
+  .el-menu-item  i {
+    color: #fff;
+  }
+}
 .el-menu-vertical-demo:not(.el-menu--collapse) {
+  background: transparent;
   width: 200px;
   min-height: 400px;
 }
+
 .menu-hidden {
   opacity: 0.8;
-  background-color: #5d5858;
+  background: transparent;
+  //background-color: #5d5858;
   color: #fff;
 }
 
@@ -313,8 +340,9 @@ export default {
 }
 
 .el-button--menu {
+  background: transparent;
   opacity: 0.8;
-  background-color: #5d5858;
+  //background-color: #5d5858;
   border: 1px solid hsla(0, 0%, 100%, 0.6);
   color: #fff;
   transition: left 0.3s ease;

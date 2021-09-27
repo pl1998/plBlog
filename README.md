@@ -83,7 +83,7 @@ npm run build:prod //打包发布 加载 .env.production配置文件
 ```shell script
 BROADCAST_DRIVER=log 
 CACHE_DRIVER=array 
-QUEUE_CONNECTION=sync //异步
+QUEUE_CONNECTION=sync 
 SESSION_DRIVER=redis //redis驱动
 SESSION_LIFETIME=120
 

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import QS from 'qs'
 import Cookies from 'js-cookie'
-import { ElMessage } from 'element-plus'
+import { Notification } from 'element-plus'
 import store from '@/store/index';
 
 axios.defaults.baseURL = process.env.VUE_APP_BASE_API
@@ -37,7 +37,7 @@ axios.interceptors.response.use(
                     Cookies.remove('token')
                     Cookies.remove('auth')
                     store.state.auth = false
-                    ElMessage.error({
+                    Notification.error({
                         message: '登录过期,请重新登录'
                     })
                     break;
@@ -45,17 +45,17 @@ axios.interceptors.response.use(
                     Cookies.remove('token')
                     Cookies.remove('auth')
                     store.state.auth = false
-                    ElMessage.error({
+                    Notification.error({
                         message: '登录过期,请重新登录'
                     })
                     break;
                 case 404:
-                    ElMessage.error({
+                    Notification.error({
                         message: '网络请求不存在'
                     })
                     break;
                 default:
-                    ElMessage.error({
+                    Notification.error({
                         message: error.response.data.message
                     })
             }
