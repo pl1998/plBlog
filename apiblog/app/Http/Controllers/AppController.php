@@ -13,6 +13,7 @@ use App\Models\Articles;
 use App\Models\Category;
 use App\Models\SourceProject;
 use App\Models\WebsiteFooter;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
 class AppController extends Controller
@@ -48,6 +49,14 @@ class AppController extends Controller
             unset($value->articles);
         }
         return $this->success($list);
+    }
+
+    public function wxCallback(Request $request)
+    {
+        #token wZwkDx7AKGzluE2lbN6
+        #EncodingAESKey wZwkDx7AKGzluE2lbN6UEEPzPLx7YUpz3T7tDhmPcvc
+
+        return $this->success();
     }
 
 }

@@ -42,6 +42,7 @@ Route::get('/weiboCallBack','OauthController@weiboCallBack');
 Route::get('/getWebsiteInfo','AppController@getWebsiteInfo');
 Route::get('/getSourceProject','AppController@getSourceProject');
 Route::get('/getCategory','AppController@getCategory');
+Route::get('/wxCallback','AppController@wxCallback');
 
 
 
