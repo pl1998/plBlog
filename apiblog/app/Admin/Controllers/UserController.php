@@ -23,7 +23,7 @@ class UserController extends AdminController
                 $grid->column('id')->sortable();
                 $grid->column('name');
                 $grid->column('email');
-                $grid->column('avatar')->image();
+                $grid->column('avatar')->image()->width(50);
                 $grid->column('bound_oauth','登录类型')->using([
                     ''=>'账号登录',
                     0=>'微博',

@@ -17,16 +17,14 @@ class HomeController extends Controller
             ->header('Dashboard')
             ->description('Description...')
             ->body(function (Row $row) {
-
-
                 $row->column(12, function (Column $column) {
                     $column->row(function (Row $row) {
                         $row->column(6, new Examples\NewUsers());
-                        $row->column(6, new Examples\NewDevices());
+//                        $row->column(6, new Examples\NewDevices());
                     });
 
-                    $column->row(new Examples\Sessions());
-                    $column->row(new Examples\ProductOrders());
+//                    $column->row(new Examples\Sessions());
+//                    $column->row(new Examples\ProductOrders());
                 });
             });
     }
