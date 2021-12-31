@@ -94,6 +94,8 @@ cp .env.example .env
 composer install
 php artisan key:gen
 php artisan serve --port 9091
+//swoole 加速
+php artisan octane:start --workers=4 --server=swoole
 ```   
 #### 后台消费队列(正式环境用守护进程维护就行)
 ```shell script
